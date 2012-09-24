@@ -4,3 +4,6 @@ obj/
 
 # Ignore package files.
 packages/
+
+#Ignore *.suo files
+*.suo
