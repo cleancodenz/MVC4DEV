@@ -1,0 +1,6 @@
+# Ignore bin files
+bin/
+obj/
+
+# Ignore package files.
+packages/
