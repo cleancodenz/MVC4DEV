@@ -33,8 +33,10 @@ namespace MVC4Application.Filters
                     {
                         if (!context.Database.Exists())
                         {
+                            throw new Exception("Database does not exists");
+
                             // Create the SimpleMembership database without Entity Framework migration schema
-                            ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                           // ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
                     }
 

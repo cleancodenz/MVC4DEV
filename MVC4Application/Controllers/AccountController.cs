@@ -13,7 +13,7 @@ using MVC4Application.Models;
 
 namespace MVC4Application.Controllers
 {
-    [Authorize]
+   
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
