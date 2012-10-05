@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC4Application", "MVC4Application\MVC4Application.csproj", "{2DC56515-E087-4AB4-A6EA-3A6279E0E516}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindViewModels", "NorthwindViewModels\NorthwindViewModels.csproj", "{65EF56E1-F573-4458-BF40-25928A3D44D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{2DC56515-E087-4AB4-A6EA-3A6279E0E516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DC56515-E087-4AB4-A6EA-3A6279E0E516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DC56515-E087-4AB4-A6EA-3A6279E0E516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
