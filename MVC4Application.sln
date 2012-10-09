@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC4Application", "MVC4Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindViewModels", "NorthwindViewModels\NorthwindViewModels.csproj", "{65EF56E1-F573-4458-BF40-25928A3D44D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindDataAccessServices", "NorthwindDataAccessServices\NorthwindDataAccessServices.csproj", "{DFCA6479-1096-4512-8CE5-B2D44A888C83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65EF56E1-F573-4458-BF40-25928A3D44D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCA6479-1096-4512-8CE5-B2D44A888C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCA6479-1096-4512-8CE5-B2D44A888C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCA6479-1096-4512-8CE5-B2D44A888C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCA6479-1096-4512-8CE5-B2D44A888C83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
