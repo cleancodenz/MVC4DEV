@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthwindDataAccessServices
+namespace Data.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Shipper
+    public partial class Territory
     {
-        public Shipper()
+        public Territory()
         {
-            this.Orders = new HashSet<Order>();
+            this.Employees = new HashSet<Employee>();
         }
     
-        public int ShipperID { get; set; }
-        public string CompanyName { get; set; }
-        public string Phone { get; set; }
+        public string TerritoryID { get; set; }
+        public string TerritoryDescription { get; set; }
+        public int RegionID { get; set; }
     
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual Region Region { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

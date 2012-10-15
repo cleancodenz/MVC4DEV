@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthwindDataAccessServices
+namespace Data.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Region
+    public partial class CustomerDemographic
     {
-        public Region()
+        public CustomerDemographic()
         {
-            this.Territories = new HashSet<Territory>();
+            this.Customers = new HashSet<Customer>();
         }
     
-        public int RegionID { get; set; }
-        public string RegionDescription { get; set; }
+        public string CustomerTypeID { get; set; }
+        public string CustomerDesc { get; set; }
     
-        public virtual ICollection<Territory> Territories { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }

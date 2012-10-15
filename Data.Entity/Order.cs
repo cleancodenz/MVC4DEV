@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthwindDataAccessServices
+namespace Data.Entity
 {
     using System;
     using System.Collections.Generic;

@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthwindDataAccessServices
+namespace Data.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomerDemographic
+    public partial class Order_Detail
     {
-        public CustomerDemographic()
-        {
-            this.Customers = new HashSet<Customer>();
-        }
+        public int OrderID { get; set; }
+        public int ProductID { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short Quantity { get; set; }
+        public float Discount { get; set; }
     
-        public string CustomerTypeID { get; set; }
-        public string CustomerDesc { get; set; }
-    
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

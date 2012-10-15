@@ -12,6 +12,7 @@ namespace NorthwindDataAccessServices
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using Data.Entity;
     
     public partial class NorthwindEntities : DbContext
     {
