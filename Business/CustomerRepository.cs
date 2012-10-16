@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Common;
+using Data.Entity;
 
-namespace Data.Entity
+namespace Business
 {
     public class CustomerRepository
     {
