@@ -23,5 +23,10 @@ namespace Business
 
 
         }
+
+        static void Test()
+        {
+ 
+        }
     }
 }
