@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Data.Objects;
+using MyCompany.Data.Entity;
 
-namespace NorthwindDataAccessServices
+namespace MyCompany.Data.Persistence.EF
 {
-    public class EntityRepository<TEntity> : IRepository<TEntity> where TEntity:class
+    public class EFRepository<TEntity> : IRepository<TEntity> where TEntity:class
     {
 
         #region properties
@@ -17,13 +18,13 @@ namespace NorthwindDataAccessServices
 
         #region private fields
 
-        private ObjectContext _objectContext;  
+        private IUnitOfWork _context;  
 
         #endregion private fields
-        
-        public EntityRepository(ObjectContext objectcontext)
+
+        public EFRepository(IUnitOfWork context)
         {
-            _objectContext = objectcontext;
+            _context = context;
         }
             
 

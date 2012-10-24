@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DFCA6479-1096-4512-8CE5-B2D44A888C83}</ProjectGuid>
+    <ProjectGuid>{A12CE829-C800-4133-BBE6-157EF04D7FCD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NorthwindDataAccessServices</RootNamespace>
-    <AssemblyName>NorthwindDataAccessServices</AssemblyName>
+    <RootNamespace>MyCompany.Data.Persistence.EF</RootNamespace>
+    <AssemblyName>MyCompany.Data.Persistence.EF</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,11 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -47,35 +43,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NorthwindModel.Designer.cs">
+    <Compile Include="EFUnitOfWork.cs" />
+    <Compile Include="NorthwindDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindModel.edmx</DependentUpon>
+      <DependentUpon>NorthwindDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="NorthwindPOCO.Context.cs">
+    <Compile Include="NorthwindModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindPOCO.Context.tt</DependentUpon>
+      <DependentUpon>NorthwindModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="EFRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="NorthwindModel.edmx">
+    <EntityDeploy Include="NorthwindDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NorthwindModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>NorthwindDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="NorthwindPOCO.Context.tt">
+    <None Include="NorthwindModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>NorthwindPOCO.Context.cs</LastGenOutput>
+      <LastGenOutput>NorthwindModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyCompany.Data.Entity\MyCompany.Data.Entity.csproj">
+      <Project>{A36AF497-8890-44FF-AD66-F05E9307EECA}</Project>
+      <Name>MyCompany.Data.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
