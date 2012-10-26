@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MVC4Application.DependencyResolver;
+using Microsoft.Practices.Unity;
 
 namespace MVC4Application
 {
@@ -23,6 +25,17 @@ namespace MVC4Application
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            // register service
+            IUnityContainer container = new UnityContainer();
+            
+            UnityDependencyResolver unityDependencyResolver =
+                new UnityDependencyResolver(container);
+
+            System.Web.Mvc.DependencyResolver.SetResolver(unityDependencyResolver);
+
+          
+
         }
     }
 }

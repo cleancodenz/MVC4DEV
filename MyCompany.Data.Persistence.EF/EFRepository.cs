@@ -12,28 +12,37 @@ namespace MyCompany.Data.Persistence.EF
     {
 
         #region properties
-    
-        
+            
         #endregion properties
 
         #region private fields
 
-        private IUnitOfWork _context;  
+        private EFUnitOfWork _efUnitOfWork;  
 
+        private IObjectSet<TEntity> _objectset;
+        
+        private IObjectSet<TEntity> ObjectSet  
+        { 
+            get 
+            { 
+                if (_objectset == null) 
+                {       
+                    _objectset = _efUnitOfWork.Context.CreateObjectSet<TEntity>();
+                } 
+                return _objectset; 
+            } 
+        }      
+        
         #endregion private fields
 
-        public EFRepository(IUnitOfWork context)
+
+        public EFRepository(EFUnitOfWork unitOfWork)
         {
-            _context = context;
+            _efUnitOfWork = unitOfWork;
         }
-            
+
 
         public void Add(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save()
         {
             throw new NotImplementedException();
         }
@@ -48,24 +57,14 @@ namespace MyCompany.Data.Persistence.EF
             throw new NotImplementedException();
         }
 
-        public void Attach(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Detach(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public IQueryable<TEntity> Find(Func<TEntity, bool> expression)
         {
-            throw new NotImplementedException();
+            return _objectset.Where(expression).AsQueryable();
         }
 
         public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _objectset.AsQueryable();
         }
     }
 }

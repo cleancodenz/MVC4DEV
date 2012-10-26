@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A12CE829-C800-4133-BBE6-157EF04D7FCD}</ProjectGuid>
+    <ProjectGuid>{E92BCF94-58E9-40F2-AB77-D4DFF03A4393}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyCompany.Data.Persistence.EF</RootNamespace>
-    <AssemblyName>MyCompany.Data.Persistence.EF</AssemblyName>
+    <RootNamespace>MyCompany.Logging</RootNamespace>
+    <AssemblyName>MyCompany.Logging</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,12 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,42 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFUnitOfWork.cs" />
-    <Compile Include="NorthwindDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="NorthwindModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ObjectContextManager\AspNetObjectContextManager.cs" />
-    <Compile Include="ObjectContextManager\StaticObjectContextManager.cs" />
+    <Compile Include="LogUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EFRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="NorthwindDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NorthwindDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Content Include="Lib\log4net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lib\log4net.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NorthwindModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>NorthwindModel.Context.cs</LastGenOutput>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyCompany.Data.Entity\MyCompany.Data.Entity.csproj">
-      <Project>{A36AF497-8890-44FF-AD66-F05E9307EECA}</Project>
-      <Name>MyCompany.Data.Entity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

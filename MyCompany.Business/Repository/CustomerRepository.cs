@@ -23,7 +23,8 @@ namespace MyCompany.Business.Repository
         public int InsertCustomer(Customer customer)
         {
              _conceretRepo.Add(customer);
-             return _conceretRepo.Save();
+             return 0;
+           //  return _conceretRepo.Save();
 
         }
     }
