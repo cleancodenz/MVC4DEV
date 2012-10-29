@@ -56,7 +56,7 @@
       <DependentUpon>NorthwindModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="ObjectContextManager\AspNetObjectContextManager.cs" />
-    <Compile Include="ObjectContextManager\StaticObjectContextManager.cs" />
+    <Compile Include="StaticObjectContextManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EFRepository.cs" />
   </ItemGroup>

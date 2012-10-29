@@ -12,14 +12,6 @@ namespace MVC4Application
             filters.Add(new HandleErrorAttribute());
           //  filters.Add(new System.Web.Mvc.AuthorizeAttribute()); 
         }
-
-        public static void ConfigureApi(HttpConfiguration config)
-        {
-            var unity = new UnityContainer();
-           // unity.RegisterType<BooksController>();
-          //  unity.RegisterType<IBookRepository, BookRepository>(
-            //    new HierarchicalLifetimeManager());
-        //    config.DependencyResolver = new IoCContainer(unity);
-        }
+   
     }
 }

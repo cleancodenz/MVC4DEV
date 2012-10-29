@@ -9,8 +9,7 @@ namespace MVC4Application
 {
     public class PerHttpRequestLifetime : LifetimeManager
     {
-        // This is very important part and the reason why I believe mentioned
-        // PerCallContext implementation is wrong.
+        // the key needs to be different on bases of per type
         private readonly Guid _key = Guid.NewGuid();
 
         public override object GetValue()
@@ -22,15 +21,21 @@ namespace MVC4Application
         {
             HttpContext.Current.Items[_key] = newValue;
             LogUtil.Debug(this.GetType(), "Object " + newValue.ToString() + " being added to PerHttpRequestLifeTimeManager " + _key);
-
         }
 
+        // not called at all
         public override void RemoveValue()
         {
-
             var obj = GetValue();
             HttpContext.Current.Items.Remove(obj);
-            LogUtil.Debug(this.GetType(), "Object "+obj.ToString() +" being removed from PerHttpRequestLifeTimeManager " + _key);
+            LogUtil.Debug(this.GetType(), "Object " + obj.ToString() + " being removed from PerHttpRequestLifeTimeManager " + _key);
         }
+
+        // not called at all
+        public void Dispose()
+        {
+            RemoveValue();
+        }
+
     }
 }

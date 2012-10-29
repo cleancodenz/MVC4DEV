@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Http.Dependencies;
+
 using Microsoft.Practices.Unity;
+using System.Web.Mvc;
 
 namespace MVC4Application.DependencyResolver
 {
@@ -14,35 +15,43 @@ namespace MVC4Application.DependencyResolver
         public UnityDependencyResolver(IUnityContainer container)
         {
             _container = container;
- 
-        }
 
-        public IDependencyScope BeginScope()
-        {
-            throw new NotImplementedException();
         }
 
         public object GetService(Type serviceType)
         {
-            if (!_container.IsRegistered(serviceType))
+            try
+            {
+                return _container.Resolve(serviceType);
+            }
+            catch (Exception ex)
             {
                 return null;
             }
-            else
-            {
-                return _container.Resolve(serviceType); 
-            }
+
+            //if (!_container.IsRegistered(serviceType))
+            //{
+            //    return null;
+            //}
+            //else
+            //{
+            //    return _container.Resolve(serviceType);
+            //}
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return _container.ResolveAll(serviceType);
+            try
+            {
+                return _container.ResolveAll(serviceType);
 
-        }
+            }
+            catch (Exception ex)
+            {
+                return new List<object>();
+            }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+
         }
     }
 }

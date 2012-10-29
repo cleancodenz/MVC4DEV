@@ -22,7 +22,7 @@ namespace MyCompany.Business.Repository
         {
             return _conceretRepo.Find(specification.Predicate).ToList();
         }
-                
+      
 
     }
 }

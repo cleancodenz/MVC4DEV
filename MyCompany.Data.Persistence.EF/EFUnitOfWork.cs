@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MyCompany.Data.Entity;
 using System.Data.Objects;
+using System.Data.EntityClient;
 
 namespace MyCompany.Data.Persistence.EF
 {
@@ -11,9 +12,22 @@ namespace MyCompany.Data.Persistence.EF
     {
         private ObjectContext _objectContext;
 
-        public EFUnitOfWork(ObjectContext objectContext)
+        public EFUnitOfWork(string connectionString)
         {
-            _objectContext = objectContext;
+            // build the connection string
+            EntityConnectionStringBuilder entityConnectionStringBuilder
+                = new EntityConnectionStringBuilder();
+
+            entityConnectionStringBuilder.Provider = "System.Data.SqlClient";
+            entityConnectionStringBuilder.ProviderConnectionString
+                = connectionString;
+
+            entityConnectionStringBuilder.Metadata =
+                @"res://*/NorthwindDB.csdl|res://*/NorthwindDB.ssdl|res://*/NorthwindDB.msl";
+
+            _objectContext = new ObjectContext(
+                new EntityConnection(entityConnectionStringBuilder.ToString()));
+
         }
 
         public ObjectContext Context

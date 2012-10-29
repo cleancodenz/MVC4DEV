@@ -174,6 +174,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="DependencyResolver\UnityDependencyResolver.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -305,6 +306,18 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyCompany.Business\MyCompany.Business.csproj">
+      <Project>{81BAE9B4-6288-4BC1-9C38-E6DB348E25A4}</Project>
+      <Name>MyCompany.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyCompany.Data.Entity\MyCompany.Data.Entity.csproj">
+      <Project>{A36AF497-8890-44FF-AD66-F05E9307EECA}</Project>
+      <Name>MyCompany.Data.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyCompany.Data.Persistence.EF\MyCompany.Data.Persistence.EF.csproj">
+      <Project>{A12CE829-C800-4133-BBE6-157EF04D7FCD}</Project>
+      <Name>MyCompany.Data.Persistence.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyCompany.Logging\MyCompany.Logging.csproj">
       <Project>{E92BCF94-58E9-40F2-AB77-D4DFF03A4393}</Project>
       <Name>MyCompany.Logging</Name>
