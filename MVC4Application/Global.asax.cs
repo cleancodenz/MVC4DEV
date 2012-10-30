@@ -43,10 +43,10 @@ namespace MVC4Application
 
                 if (connectionsetting == null)
                 {
-                    throw new Exception("No connection setting can be found."); 
+                    throw new Exception("No connection setting can be found.");
                 }
 
-                // Register unitof work
+                // Register unit of work
                 container.RegisterType<IUnitOfWork, EFUnitOfWork>
                     (new PerHttpRequestLifetime(), new InjectionConstructor(connectionsetting.ConnectionString));
 
@@ -63,6 +63,12 @@ namespace MVC4Application
                     new UnityDependencyResolver(container);
 
                 System.Web.Mvc.DependencyResolver.SetResolver((IDependencyResolver)unityDependencyResolver);
+
+                UnityDependencyResolverAPI unityDependencyResolverAPI
+                    = new UnityDependencyResolverAPI(container);
+
+                System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver =
+                    unityDependencyResolverAPI;
 
             }
             catch (Exception ex)

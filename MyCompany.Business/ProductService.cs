@@ -19,5 +19,6 @@ namespace MyCompany.Business
 
             _unitOfWork = unitOfWork;
         }
+
     }
 }
