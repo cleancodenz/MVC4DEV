@@ -22,7 +22,17 @@ namespace MyCompany.Business.Repository
         {
             return _conceretRepo.Find(specification.Predicate).ToList();
         }
-      
 
+        public IQueryable<Product> GetAllProducts()
+        {
+            return _conceretRepo.GetAll();
+        }
+
+        //public IQueryable<Product> GetAllProductsEager()
+        //{
+           
+
+        //    return _conceretRepo.GetAllWithChildren();
+        //}
     }
 }

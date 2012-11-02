@@ -26,7 +26,11 @@ namespace MyCompany.Data.Persistence.EF
                 @"res://*/NorthwindDB.csdl|res://*/NorthwindDB.ssdl|res://*/NorthwindDB.msl";
 
             _objectContext = new ObjectContext(
-                new EntityConnection(entityConnectionStringBuilder.ToString()));
+                new EntityConnection(entityConnectionStringBuilder.ToString())
+                );
+
+          //  _objectContext.ContextOptions.LazyLoadingEnabled = true;
+         //   _objectContext = new NorthwindEntities();
 
         }
 

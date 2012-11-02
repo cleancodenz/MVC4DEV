@@ -19,15 +19,18 @@ namespace MyCompany.Data.Persistence.EF
 
         private EFUnitOfWork _efUnitOfWork;  
 
-        private IObjectSet<TEntity> _objectset;
+        // do not use IObjectSet as it will not provide Include for eager loading 
+        private ObjectSet<TEntity> _objectset;
         
-        private IObjectSet<TEntity> ObjectSet  
+        private ObjectSet<TEntity> ObjectSet  
         { 
             get 
             { 
                 if (_objectset == null) 
                 {       
                     _objectset = _efUnitOfWork.Context.CreateObjectSet<TEntity>();
+                    _objectset.MergeOption = MergeOption.NoTracking;
+                    
                 } 
                 return _objectset; 
             } 
@@ -59,12 +62,27 @@ namespace MyCompany.Data.Persistence.EF
 
         public IQueryable<TEntity> Find(Func<TEntity, bool> expression)
         {
-            return _objectset.Where(expression).AsQueryable();
+            return ObjectSet.Where(expression).AsQueryable();
         }
 
         public IQueryable<TEntity> GetAll()
         {
-            return _objectset.AsQueryable();
+            return ObjectSet.AsQueryable();
         }
+
+        public IQueryable<TEntity> GetAllWithChildren(string[] paths)
+        {
+            ObjectQuery<TEntity> qry = ObjectSet;
+
+            foreach (string path in paths)
+            {
+                qry = qry.Include(path);
+            }
+
+            //string str = qry.ToTraceString();
+
+            return qry.AsQueryable();
+        }
+
     }
 }

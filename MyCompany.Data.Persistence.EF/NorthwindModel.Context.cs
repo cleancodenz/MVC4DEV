@@ -16,8 +16,8 @@ namespace MyCompany.Data.Persistence.EF
 {
     public partial class NorthwindEntities : ObjectContext
     {
-        public const string ConnectionString = "name=NorthwindEntities";
-        public const string ContainerName = "NorthwindEntities";
+       public const string ConnectionString = "name=NorthwindEntities";
+       public const string ContainerName = "NorthwindEntities";
     
         #region Constructors
     

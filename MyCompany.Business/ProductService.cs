@@ -13,12 +13,39 @@ namespace MyCompany.Business
 
         private readonly ProductRepository  _productRepository;
 
-        public ProductService(ProductRepository productRepository, IUnitOfWork unitOfWork)
+        private readonly SupplierRepository _supplierRepository;
+
+        
+        public ProductService(ProductRepository productRepository,
+            SupplierRepository supplierRepository,
+            IUnitOfWork unitOfWork)
         {
             _productRepository = productRepository;
 
+            _supplierRepository = supplierRepository;
+
             _unitOfWork = unitOfWork;
         }
+              
+        IEnumerable<Product> IProductService.GetAllProducts()
+        {
+           // var result1 = _supplierRepository.GetAllSuppliers();
 
+         
+          //  var list1 = result1.ToList();
+
+            var result2 = _supplierRepository.GetAllSuppliersEager();
+
+            var list2 = result2.ToList();
+
+            var result= _productRepository.GetAllProducts() ;
+                        
+
+            var list = result.ToList();
+
+            var test = list[0].Supplier;
+
+            return result as IEnumerable<Product> ;
+        }
     }
 }

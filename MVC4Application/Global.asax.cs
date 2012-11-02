@@ -6,14 +6,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using MVC4Application.DependencyResolver;
-using Microsoft.Practices.Unity;
-using MyCompany.Business;
 using MyCompany.Logging;
-using System.Configuration;
-using MyCompany.Data.Entity;
-using MyCompany.Data.Persistence.EF;
-using MyCompany.Business.Repository;
+
+
+
 
 namespace MVC4Application
 {
@@ -35,41 +31,9 @@ namespace MVC4Application
                 BundleConfig.RegisterBundles(BundleTable.Bundles);
                 AuthConfig.RegisterAuth();
 
-                // register service
-                IUnityContainer container = new UnityContainer();
-
-                // to get the connection string
-                var connectionsetting = ConfigurationManager.ConnectionStrings["DefaultConnection"];
-
-                if (connectionsetting == null)
-                {
-                    throw new Exception("No connection setting can be found.");
-                }
-
-                // Register unit of work
-                container.RegisterType<IUnitOfWork, EFUnitOfWork>
-                    (new PerHttpRequestLifetime(), new InjectionConstructor(connectionsetting.ConnectionString));
-
-                //register concrete respository for invidual repositories 
-                container.RegisterType<IRepository<Product>, EFRepository<Product>>
-                  (new PerHttpRequestLifetime());
-
-                // register serivces
-                container.RegisterType<IProductService, ProductService>(
-                  new PerHttpRequestLifetime());
-
-
-                UnityDependencyResolver unityDependencyResolver =
-                    new UnityDependencyResolver(container);
-
-                System.Web.Mvc.DependencyResolver.SetResolver((IDependencyResolver)unityDependencyResolver);
-
-                UnityDependencyResolverAPI unityDependencyResolverAPI
-                    = new UnityDependencyResolverAPI(container);
-
-                System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver =
-                    unityDependencyResolverAPI;
-
+                ContainerConfig.Register();
+                
+             
             }
             catch (Exception ex)
             {

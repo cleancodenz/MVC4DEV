@@ -31,7 +31,14 @@ namespace MVC4Application.APIControllers
         // /api/products
         public IEnumerable<Product> GetAllProducts()
         {
-            return products;
+            var p = from product in _productService.GetAllProducts()
+                    select new MyCompany.UI.Data.Model.Product { 
+                        Id = product.ProductID,
+                        Name = product.ProductName,
+                        Category = product.ProductName,
+                        Price = product.UnitPrice
+                    } ;
+            return p;
         }
 
         // /api/products/id

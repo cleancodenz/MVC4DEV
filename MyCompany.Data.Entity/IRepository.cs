@@ -12,5 +12,7 @@ namespace MyCompany.Data.Entity
        void Delete(TEntity entity);
        IQueryable<TEntity> Find(Func<TEntity,bool> expression);
        IQueryable<TEntity> GetAll();
+       IQueryable<TEntity> GetAllWithChildren(string[] paths);
+
     }
 }

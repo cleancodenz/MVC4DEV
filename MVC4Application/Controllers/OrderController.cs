@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MVC4Application.Controllers
 {
-    public class OrdersController : Controller
+    public class OrderController : Controller
     {
                 
         public ActionResult BeginOrderInquiry()

@@ -1,0 +1,97 @@
+﻿<script src="../../Scripts/knockout-2.1.0.js" type="text/javascript"></script>
+@model MyCompany.UI.Data.Model.Product
+@{
+    string indexURL = @Url.Action("products", "api");
+
+    ViewBag.Title = "Knockout Product Inquiry";
+}
+<p>
+    DFDDDD</p>
+<table cellspacing="0" cellpadding="0">
+    <thread>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price);
+            </th>
+
+        </tr>
+    </thread>
+    <tbody data-bind="foreach: products">
+        <tr>
+            <td data-bind="text : Id">
+            </td>
+            <td>
+                <input data-bind="value : Name">
+            </td>
+            <td>
+                <input data-bind="value : Category">
+            </td>
+
+            <td>
+                <input data-bind="value : Price">
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/knockout")
+    <script type="text/javascript">
+
+        var ns = new function () {
+
+            var namespace = this;
+            // define a class
+            namespace.productModel = function (product) {
+                var self = this;
+
+                self.Id = product.Id;
+                self.Name = ko.observable(product.Name);
+                self.Category = ko.observable(product.Category);
+                self.Price = ko.observable(product.Price);
+
+            }
+
+            namespace.ViewModel = function () {
+                var self = this;
+                self.products = ko.observableArray([]);
+            }
+
+            namespace.getProducts = function (viewModel) {
+                // to populate the model
+                $.ajax("@indexURL",
+                 {
+                     type: "get",
+                     contentType: "application/json",
+                     success: function (result) {
+                         $.map(result,
+                              function (item) {
+                                  viewModel.products.push(new namespace.productModel(item))
+                              });
+                     }
+                 });
+            }
+
+        };
+
+
+        $(function () {
+
+            var viewmodel = new ns.ViewModel();
+
+            ns.getProducts(viewmodel);
+            
+            ko.applyBindings(viewmodel);
+
+        });
+    </script>
+}

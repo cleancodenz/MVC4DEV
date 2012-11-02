@@ -8,11 +8,11 @@ using Microsoft.Practices.Unity;
 
 namespace MVC4Application.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
         private readonly IProductService _productService;
 
-        public ProductsController(IProductService productService)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
         }
@@ -21,6 +21,11 @@ namespace MVC4Application.Controllers
         {
             // to get some service
             return Content(Server.HtmlEncode(DateTime.Now.ToLongDateString()));;
+        }
+
+        public ActionResult KnockoutInquiry()
+        {
+            return View();
         }
 
     }
