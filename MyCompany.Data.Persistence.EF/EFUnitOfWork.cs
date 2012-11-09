@@ -25,12 +25,14 @@ namespace MyCompany.Data.Persistence.EF
             entityConnectionStringBuilder.Metadata =
                 @"res://*/NorthwindDB.csdl|res://*/NorthwindDB.ssdl|res://*/NorthwindDB.msl";
 
+            //   _objectContext = new NorthwindEntities();
+
             _objectContext = new ObjectContext(
                 new EntityConnection(entityConnectionStringBuilder.ToString())
                 );
 
-          //  _objectContext.ContextOptions.LazyLoadingEnabled = true;
-         //   _objectContext = new NorthwindEntities();
+            _objectContext.ContextOptions.LazyLoadingEnabled = false;
+            _objectContext.ContextOptions.ProxyCreationEnabled = false;
 
         }
 

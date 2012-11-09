@@ -7,3 +7,5 @@ packages/
 
 #Ignore *.suo files
 *.suo
+log4net.*
+
