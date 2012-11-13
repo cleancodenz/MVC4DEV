@@ -8,6 +8,8 @@ namespace MyCompany.Business
 {
     public interface IProductService
     {
-        IEnumerable<Product> GetAllProducts();
+        IEnumerable<Product> GetAllProductsWithCategory();
+        Product GetProductByID(int productId);
+        IEnumerable<Product> GetProductsByCategory(int CategoryId);
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Collections;
 using System.Data.Objects;
 using MyCompany.Data.Entity;
+using System.Data;
+using System.Data.Metadata.Edm;
 
 namespace MyCompany.Data.Persistence.EF
 {
@@ -38,6 +40,31 @@ namespace MyCompany.Data.Persistence.EF
         
         #endregion private fields
 
+        private EntityKey GetEntityKey(TEntity entity)
+        {
+            //Utility method which return the EntityKey for the POCO Entity type.
+
+            ReadOnlyMetadataCollection<EdmMember> keyMembers = 
+                ObjectSet.EntitySet.ElementType.KeyMembers;
+
+            List<EntityKeyMember> entityKeyMembers = new List<EntityKeyMember>();
+
+            //Construct the entity key for the POCO Entity type object.
+            foreach (EdmMember keyMember in keyMembers)
+            {
+                object keyMemberValue = entity.GetType().GetProperty(keyMember.Name).GetValue(entity, null);
+                entityKeyMembers.Add(new EntityKeyMember(keyMember.Name, keyMemberValue));
+            }
+
+            //Create the Entity key for our POCO Entity type object.
+            EntityKey key = new EntityKey(
+               _efUnitOfWork.Context.DefaultContainerName + "." + ObjectSet.EntitySet.Name, entityKeyMembers);
+
+            //Retrun the entity key.
+            return key;
+
+        }
+
 
         public EFRepository(EFUnitOfWork unitOfWork)
         {
@@ -47,17 +74,44 @@ namespace MyCompany.Data.Persistence.EF
 
         public void Add(TEntity entity)
         {
-            throw new NotImplementedException();
+            ObjectSet.AddObject(entity);
+          
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            /**
+            // this is one of two ways to update, update all fields
+
+            ObjectSet.Attach(entity);
+            
+            // manually change its state, when it is saved, all fields will be updated
+
+            _efUnitOfWork.Context.ObjectStateManager.
+                ChangeObjectState(entity, System.Data.EntityState.Modified);
+
+             **/
+
+            // this is another one of two ways to update, retrieve current one from db
+            // then ApplyCurrentValues, the difference from this one is it needs retrieving
+            // first and only changed fields are updated
+            // remember ApplyCurrentValues only updates scala values, which is the case for poco classes
+            // navigational properties are not updated.
+
+            EntityKey key = GetEntityKey(entity);
+
+            // to load it from db
+            TEntity dbentity = (TEntity)_efUnitOfWork.Context.GetObjectByKey(key); 
+
+            // is this already attached
+            ObjectSet.ApplyCurrentValues(entity);
+
         }
 
         public void Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+            ObjectSet.Attach(entity);
+            ObjectSet.DeleteObject(entity);
         }
 
         public IQueryable<TEntity> Find(Func<TEntity, bool> expression)
@@ -84,5 +138,21 @@ namespace MyCompany.Data.Persistence.EF
             return qry.AsQueryable();
         }
 
+        public IQueryable<TEntity> GetAllWithProperty(string path)
+        {
+            ObjectQuery<TEntity> qry = ObjectSet;
+
+            qry = qry.Include(path);
+
+            //string str = qry.ToTraceString();
+
+            return qry.AsQueryable();
+        }
+
+
+        public void Save()
+        {
+            _efUnitOfWork.commit();
+        }
     }
 }

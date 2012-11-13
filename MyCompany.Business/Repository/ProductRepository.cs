@@ -28,11 +28,14 @@ namespace MyCompany.Business.Repository
             return _conceretRepo.GetAll();
         }
 
-        //public IQueryable<Product> GetAllProductsEager()
-        //{
-           
+        public IQueryable<Product> GetAllProductsWithCategory()
+        {           
+            return _conceretRepo.GetAllWithProperty("Category");
+        }
 
-        //    return _conceretRepo.GetAllWithChildren();
-        //}
+        public Product GetProductById(int productId)
+        {
+            return _conceretRepo.Find(p=>p.ProductID==productId).FirstOrDefault();
+        }
     }
 }

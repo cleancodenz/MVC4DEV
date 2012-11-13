@@ -20,11 +20,11 @@ namespace MyCompany.Business.Repository
             return _conceretRepo.Find(p => p.CustomerID == CustomerId).FirstOrDefault();
         }
 
-        public int InsertCustomer(Customer customer)
+        public void InsertCustomer(Customer customer)
         {
              _conceretRepo.Add(customer);
-             return 0;
-           //  return _conceretRepo.Save();
+            
+            _conceretRepo.Save();
 
         }
     }

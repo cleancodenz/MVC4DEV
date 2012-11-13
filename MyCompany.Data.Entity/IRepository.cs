@@ -13,6 +13,7 @@ namespace MyCompany.Data.Entity
        IQueryable<TEntity> Find(Func<TEntity,bool> expression);
        IQueryable<TEntity> GetAll();
        IQueryable<TEntity> GetAllWithChildren(string[] paths);
-
+       IQueryable<TEntity> GetAllWithProperty(string path);
+       void Save();
     }
 }

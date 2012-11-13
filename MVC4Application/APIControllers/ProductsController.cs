@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MyCompany.UI.Data.Model;
 using MyCompany.Business;
+using MVC4Application.Transformers;
 
 
 namespace MVC4Application.APIControllers
@@ -31,20 +32,17 @@ namespace MVC4Application.APIControllers
         // /api/products
         public IEnumerable<Product> GetAllProducts()
         {
-            var p = from product in _productService.GetAllProducts()
-                    select new MyCompany.UI.Data.Model.Product { 
-                        Id = product.ProductID,
-                        Name = product.ProductName,
-                        Category = product.ProductName,
-                        Price = product.UnitPrice
-                    } ;
+            var p = from product in _productService.GetAllProductsWithCategory()
+                    select DomainProductToUIProduct.Transforme(product) ;
             return p;
         }
 
         // /api/products/id
         public Product GetProductById(int id)
         {
-            var product = products.FirstOrDefault((p) => p.Id == id);
+            var product = DomainProductToUIProduct.Transforme
+            (_productService.GetProductByID(id));
+
             if (product == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -53,13 +51,14 @@ namespace MVC4Application.APIControllers
         }
 
         // /api/products/?category=category
-        public IEnumerable<Product> GetProductsByCategory(string category)
+        public IEnumerable<Product> GetProductsByCategory(int categoryid)
         {
-            return products.Where(
-                (p) => string.Equals(p.Category, category,
-                    StringComparison.OrdinalIgnoreCase));
+            var p = from product in _productService.GetProductsByCategory(categoryid)
+                    select DomainProductToUIProduct.Transforme(product);
+            return p;
         }
 
+        // new product
         public HttpResponseMessage PostProduct(Product item)
         {
             products.ToList().Add(item);

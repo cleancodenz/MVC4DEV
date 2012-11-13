@@ -31,7 +31,9 @@ namespace MyCompany.Data.Persistence.EF
                 new EntityConnection(entityConnectionStringBuilder.ToString())
                 );
 
+            // turn off lady loading
             _objectContext.ContextOptions.LazyLoadingEnabled = false;
+            // turn off proxi generation
             _objectContext.ContextOptions.ProxyCreationEnabled = false;
 
         }
@@ -43,7 +45,7 @@ namespace MyCompany.Data.Persistence.EF
 
         public void commit()
         {
-            throw new NotImplementedException();
+            _objectContext.SaveChanges();
         }
 
         public void Dispose()

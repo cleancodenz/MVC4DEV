@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="ICustomerService.cs" />
     <Compile Include="IOrderService.cs" />
     <Compile Include="IProductService.cs" />
     <Compile Include="OrdersService.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="Specification\DiscontinuedProductSpecification.cs" />
+    <Compile Include="Specification\ProductOfCategory.cs" />
     <Compile Include="Specification\PromotionalAndDiscontinuedProductSpecification.cs" />
     <Compile Include="Specification\PromotionalProductSpecification.cs" />
     <Compile Include="Specification\Specification.cs" />

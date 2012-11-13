@@ -1,48 +1,16 @@
-2012-11-05 13:44:35,726 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager cc53216a-aa4c-45c3-b2b5-161f354547d1
-2012-11-05 13:44:35,733 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager f3060f13-cdf7-483e-8a02-a86f4a432c30
-2012-11-05 13:44:35,734 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager 5177d8bf-0d9a-4f8a-8abf-d5198b2a3604
-2012-11-05 13:44:35,734 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager 397bee91-b901-4c3c-a8fe-1146b8fb06ff
-2012-11-05 13:44:36,832 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager cc53216a-aa4c-45c3-b2b5-161f354547d1
-2012-11-05 13:44:36,832 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager f3060f13-cdf7-483e-8a02-a86f4a432c30
-2012-11-05 13:44:36,832 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager 5177d8bf-0d9a-4f8a-8abf-d5198b2a3604
-2012-11-05 13:44:36,832 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager 397bee91-b901-4c3c-a8fe-1146b8fb06ff
-2012-11-05 13:54:27,620 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager 729e4086-02a0-4180-b58d-79205d9bae9d
-2012-11-05 13:54:27,629 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager 108ab5f5-ced3-41ec-99c6-718a926d5092
-2012-11-05 13:54:27,631 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager 2d92443a-d441-4fd7-808f-04cfb8f96d23
-2012-11-05 13:54:27,631 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager 53b6c543-af1c-4318-bc13-d3a1902e640e
-2012-11-05 13:54:28,870 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager 729e4086-02a0-4180-b58d-79205d9bae9d
-2012-11-05 13:54:28,870 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager 108ab5f5-ced3-41ec-99c6-718a926d5092
-2012-11-05 13:54:28,870 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager 2d92443a-d441-4fd7-808f-04cfb8f96d23
-2012-11-05 13:54:28,870 - DEBUG [10] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager 53b6c543-af1c-4318-bc13-d3a1902e640e
-2012-11-05 14:04:58,702 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager cebb0b46-00c6-4f90-a575-e0c053137e2b
-2012-11-05 14:04:58,711 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager 27304649-f081-443e-8264-7ab503e46c84
-2012-11-05 14:04:58,712 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager 3fbf5027-3360-45e3-8a9a-c2a185c82fac
-2012-11-05 14:04:58,712 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager fa8da829-e7de-48c9-87ac-46078e3af4ed
-2012-11-05 14:04:59,895 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager cebb0b46-00c6-4f90-a575-e0c053137e2b
-2012-11-05 14:04:59,895 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager 27304649-f081-443e-8264-7ab503e46c84
-2012-11-05 14:04:59,895 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager 3fbf5027-3360-45e3-8a9a-c2a185c82fac
-2012-11-05 14:04:59,895 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
- - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager fa8da829-e7de-48c9-87ac-46078e3af4ed
+2012-11-13 14:14:35,741 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager 27c5b7f3-0812-4aaf-bbe4-ffe53062abcf
+2012-11-13 14:14:35,749 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager 67047415-722c-4917-87d1-397fe9fc0bf5
+2012-11-13 14:14:35,750 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager cc7047b9-71bd-4b08-a05f-d618ef2f2dc5
+2012-11-13 14:14:35,750 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager 34aba279-9305-413b-bf2c-ca96c4467fba
+2012-11-13 14:14:37,094 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Data.Persistence.EF.EFUnitOfWork being added to PerHttpRequestLifeTimeManager 27c5b7f3-0812-4aaf-bbe4-ffe53062abcf
+2012-11-13 14:14:37,094 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Product] being added to PerHttpRequestLifeTimeManager 67047415-722c-4917-87d1-397fe9fc0bf5
+2012-11-13 14:14:37,094 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Data.Persistence.EF.EFRepository`1[MyCompany.Data.Entity.Supplier] being added to PerHttpRequestLifeTimeManager cc7047b9-71bd-4b08-a05f-d618ef2f2dc5
+2012-11-13 14:14:37,094 - DEBUG [6] MVC4Application.PerHttpRequestLifetime
+ - Object MyCompany.Business.ProductService being added to PerHttpRequestLifeTimeManager 34aba279-9305-413b-bf2c-ca96c4467fba

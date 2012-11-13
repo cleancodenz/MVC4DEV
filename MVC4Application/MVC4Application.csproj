@@ -186,6 +186,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="PerHttpRequestLifetime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transformers\DomainProductToUIProduct.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
