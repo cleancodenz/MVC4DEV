@@ -22,7 +22,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price);
             </th>
-
+            <th></th>
         </tr>
     </thread>
     <tbody data-bind="foreach: products">
@@ -35,14 +35,22 @@
             <td>
                 <input data-bind="value : Category">
             </td>
-
             <td>
                 <input data-bind="value : Price">
             </td>
-
+            <td>
+                <button data-bind="click: $root.deleteProduct">
+                    Delete</button>
+                <button data-bind="click: $root.saveProduct">
+                    save</button>
+            </td>
         </tr>
     </tbody>
 </table>
+<div>
+    <button data-bind="click: addProduct">
+        New</button>
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/knockout")
     <script type="text/javascript">
@@ -54,16 +62,36 @@
             namespace.productModel = function (product) {
                 var self = this;
 
-                self.Id = product.Id;
-                self.Name = ko.observable(product.Name);
-                self.Category = ko.observable(product.Category);
-                self.Price = ko.observable(product.Price);
-
+                if (product) {
+                    self.Id = ko.observable(product.Id);
+                    self.Name = ko.observable(product.Name);
+                    self.Category = ko.observable(product.Category);
+                    self.Price = ko.observable(product.Price);
+                }
+                else {
+                    self.Id = ko.observable(0);
+                    self.Name = ko.observable();
+                    self.Category = ko.observable();
+                    self.Price = ko.observable();
+                }
             }
 
             namespace.ViewModel = function () {
                 var self = this;
                 self.products = ko.observableArray([]);
+
+                self.deleteProduct = function (product) {
+
+                }
+                self.saveProduct = function (product) {
+                    namespace.saveProduct(product);
+                }
+
+                self.addProduct = function () {
+                    self.products.push(
+                    new namespace.productModel());
+                }
+
             }
 
             namespace.getProducts = function (viewModel) {
@@ -81,15 +109,40 @@
                  });
             }
 
-        };
+            namespace.saveProduct = function (product) {
+                // to populate the model
+                if (product.Id === 0) {
+                    // this is new
+                    $.ajax("@indexURL",
+                        { data: ko.toJSON(product),
+                            type: "POST",
+                            contentType: "application/json",
+                            success: function (result) {
+                                product.Id(result.)
+                             }
+                        });
+                }
 
+                else {
+                    // this is update
 
+                    $.ajax("@indexURL",
+                   { data: ko.toJSON(product),
+                       type: "PUT",
+                       contentType: "application/json",
+                       success: function (result) { alert(result) }
+                   });
+                }
+
+            }
+
+        }
         $(function () {
 
             var viewmodel = new ns.ViewModel();
-
+         
             ns.getProducts(viewmodel);
-            
+
             ko.applyBindings(viewmodel);
 
         });

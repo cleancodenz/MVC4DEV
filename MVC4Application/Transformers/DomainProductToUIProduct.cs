@@ -7,9 +7,9 @@ using MyCompany.Data.Entity;
 
 namespace MVC4Application.Transformers
 {
-    public class DomainProductToUIProduct
+    public class DomainAndUIProduct
     {
-        public static MyCompany.UI.Data.Model.Product Transforme(
+        public static MyCompany.UI.Data.Model.Product FromDomainToUI(
             Product dproduct)
         {
             MyCompany.UI.Data.Model.Product uiproduct = new
@@ -26,5 +26,20 @@ namespace MVC4Application.Transformers
 
             return uiproduct;
         }
+
+        public static Product FromUIToDomain(
+          MyCompany.UI.Data.Model.Product uiproduct)
+        {
+            Product dproduct = new Product();
+
+            dproduct.CategoryID = uiproduct.CategoryID;
+          
+            dproduct.ProductID =uiproduct.Id ;
+            dproduct.ProductName =uiproduct.Name  ;
+            dproduct.UnitPrice =uiproduct.Price  ;
+
+            return dproduct;
+        }
+
     }
 }

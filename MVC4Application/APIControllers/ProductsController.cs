@@ -33,14 +33,14 @@ namespace MVC4Application.APIControllers
         public IEnumerable<Product> GetAllProducts()
         {
             var p = from product in _productService.GetAllProductsWithCategory()
-                    select DomainProductToUIProduct.Transforme(product) ;
+                    select DomainAndUIProduct.FromDomainToUI(product) ;
             return p;
         }
 
         // /api/products/id
         public Product GetProductById(int id)
         {
-            var product = DomainProductToUIProduct.Transforme
+            var product = DomainAndUIProduct.FromDomainToUI
             (_productService.GetProductByID(id));
 
             if (product == null)
@@ -54,38 +54,72 @@ namespace MVC4Application.APIControllers
         public IEnumerable<Product> GetProductsByCategory(int categoryid)
         {
             var p = from product in _productService.GetProductsByCategory(categoryid)
-                    select DomainProductToUIProduct.Transforme(product);
+                    select DomainAndUIProduct.FromDomainToUI(product);
             return p;
         }
 
         // new product
         public HttpResponseMessage PostProduct(Product item)
         {
-            products.ToList().Add(item);
+            var _product = _productService.AddProduct(DomainAndUIProduct.FromUIToDomain(item));
 
-            var response = Request.CreateResponse<Product>(HttpStatusCode.Created, item);
+            if (_product != null)
+            {
+                var response = Request.CreateResponse<Product>(HttpStatusCode.Created, DomainAndUIProduct.FromDomainToUI(_product));
 
-            string uri = Url.Link("DefaultApi", new { id = item.Id });
-            response.Headers.Location = new Uri(uri);
-            
-            return response;
+              //  string uri = Url.Link("DefaultApi", new { id = item.Id });
+               // response.Headers.Location = new Uri(uri);
 
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+            }
             
         }
 
-        public void PutProduct(int id, Product product)
+        public HttpResponseMessage PutProduct(Product product)
         {
-            product.Id = id;
-            //if (!repository.Update(product))
-            //{
-            //    throw new HttpResponseException(HttpStatusCode.NotFound);
-            //}
+         
+           // to get the product first
+            var _product = _productService.GetProductByID(product.Id);
+
+            if (_product != null)
+            {
+                // only update the name and price
+                _product.ProductName = product.Name;
+                _product.UnitPrice = product.Price;
+
+                // then save it
+                if (_productService.UpdateProduct(_product))
+                {
+                    return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, product);
+                }
+            }
+            else
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+        
         }
 
-        public HttpResponseMessage DeleteProduct(int id)
+        public HttpResponseMessage DeleteProduct(Product product)
         {
-            // repository.Remove(id);
-            return new HttpResponseMessage(HttpStatusCode.NoContent);
+
+            // then save it
+            if (_productService.DeleteProduct(DomainAndUIProduct.FromUIToDomain(product)))
+            {
+                return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, product);
+            }
         }
 
     }

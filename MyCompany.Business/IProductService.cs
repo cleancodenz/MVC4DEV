@@ -11,5 +11,8 @@ namespace MyCompany.Business
         IEnumerable<Product> GetAllProductsWithCategory();
         Product GetProductByID(int productId);
         IEnumerable<Product> GetProductsByCategory(int CategoryId);
+        bool UpdateProduct(Product product);
+        Product AddProduct(Product product);
+        bool DeleteProduct(Product product);
     }
 }

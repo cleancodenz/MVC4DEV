@@ -44,5 +44,21 @@ namespace MyCompany.Business
             return _productRepository.GetProductsBySpecification(
                 new ProductOfCategory(CategoryId));
         }
+
+
+        public bool UpdateProduct(Product product)
+        {
+            return _productRepository.UpdateProduct(product);
+        }
+
+        public Product AddProduct(Product product)
+        {
+            return _productRepository.AddProduct(product);
+        }
+
+        public bool DeleteProduct(Product product)
+        {
+            return _productRepository.DeleteProduct(product);
+        }
     }
 }
