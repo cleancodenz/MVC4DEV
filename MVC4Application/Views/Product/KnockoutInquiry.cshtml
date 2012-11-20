@@ -81,7 +81,13 @@
                 self.products = ko.observableArray([]);
 
                 self.deleteProduct = function (product) {
+                    namespace.deleteProduct(product, function (rproduct) {
+                        if (rproduct.Id == product.Id()) {
+                            // delete from arry
+                            self.products.remove(product);
+                        }
 
+                    });
                 }
                 self.saveProduct = function (product) {
                     namespace.saveProduct(product);
@@ -111,15 +117,19 @@
 
             namespace.saveProduct = function (product) {
                 // to populate the model
-                if (product.Id === 0) {
+                if (product.Id() === 0) {
                     // this is new
                     $.ajax("@indexURL",
                         { data: ko.toJSON(product),
                             type: "POST",
                             contentType: "application/json",
                             success: function (result) {
-                                product.Id(result.)
-                             }
+                                product.Id(result.Id);
+                            },
+                            error: function (result) {
+                                alert(result);
+                            }
+
                         });
                 }
 
@@ -130,13 +140,35 @@
                    { data: ko.toJSON(product),
                        type: "PUT",
                        contentType: "application/json",
-                       success: function (result) { alert(result) }
+                       success: function (result) { alert(result.Id) },
+                       error: function (result) {
+                           alert(result);
+                       }
+
                    });
+                }
+
+            }
+            namespace.deleteProduct = function (product, ondelete) {
+                // to populate the model
+                if (product.Id() != 0) {
+                    // this is new
+                    $.ajax("@indexURL",
+                        { data: ko.toJSON(product),
+                            type: "DELETE",
+                            contentType: "application/json",
+                            success: ondelete,
+                            error: function (result) {
+                                alert(result);
+                            }
+                        });
                 }
 
             }
 
         }
+
+
         $(function () {
 
             var viewmodel = new ns.ViewModel();

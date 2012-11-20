@@ -110,8 +110,17 @@ namespace MyCompany.Data.Persistence.EF
 
         public void Delete(TEntity entity)
         {
+           // ObjectStateEntry entry = null;
+           // _efUnitOfWork.Context.ObjectStateManager.TryGetObjectStateEntry(entity, out entry);
+
             ObjectSet.Attach(entity);
+
+           // _efUnitOfWork.Context.ObjectStateManager.TryGetObjectStateEntry(entity, out entry);
+
             ObjectSet.DeleteObject(entity);
+
+            //_efUnitOfWork.Context.ObjectStateManager.TryGetObjectStateEntry(entity, out entry);
+
         }
 
         public IQueryable<TEntity> Find(Func<TEntity, bool> expression)

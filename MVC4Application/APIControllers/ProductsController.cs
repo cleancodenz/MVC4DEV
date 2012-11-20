@@ -99,6 +99,8 @@ namespace MVC4Application.APIControllers
                 else
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, product);
+                    // will return result as a json object: {"Id":79,"Name":"testr","CategoryID":null,"Category":null,"Price":14.0}
+
                 }
             }
             else
@@ -114,11 +116,11 @@ namespace MVC4Application.APIControllers
             // then save it
             if (_productService.DeleteProduct(DomainAndUIProduct.FromUIToDomain(product)))
             {
-                return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+                return Request.CreateResponse(HttpStatusCode.OK, product);
             }
             else
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, product);
+            {               
+                return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
             }
         }
 
