@@ -1,6 +1,8 @@
 # Ignore bin files
 bin/
 obj/
+Debug/
+Release/
 
 # Ignore package files.
 packages/
