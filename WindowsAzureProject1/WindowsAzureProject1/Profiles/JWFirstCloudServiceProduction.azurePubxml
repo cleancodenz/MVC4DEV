@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <AzureCredentials>{"ServiceManagementEndpoint":"https:\/\/management.core.windows.net\/","SubscriptionId":"478cbccc-5272-4d98-93fc-e664138e3c22"}</AzureCredentials>
-    <AzureDeleteDeploymentOnFailure>False</AzureDeleteDeploymentOnFailure>
+    <AzureDeleteDeploymentOnFailure>True</AzureDeleteDeploymentOnFailure>
     <AzureDeploymentLabel>WindowsAzureProject1</AzureDeploymentLabel>
     <AzureDeploymentReplacementMethod>AutomaticUpgrade</AzureDeploymentReplacementMethod>
     <AzureSlot>Production</AzureSlot>

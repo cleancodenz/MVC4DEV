@@ -38,50 +38,26 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebRole1\WebRole1.csproj">
-      <Name>WebRole1</Name>
-      <Project>{427d051e-c122-4866-8386-5987f28524bf}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>WebRole1</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
-    <ProjectReference Include="..\WebRole2\WebRole2.csproj">
-      <Name>WebRole2</Name>
-      <Project>{863908b1-90c8-4a16-9296-5be994bc2720}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>WebRole2</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
-    <ProjectReference Include="..\WorkerRole1\WorkerRole1.csproj">
-      <Name>WorkerRole1</Name>
-      <Project>{cb9742ab-ff31-4c5e-bbce-1714cae247f0}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>WorkerRole1</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Profiles" />
-    <Folder Include="WebRole1Content\" />
-    <Folder Include="WebRole2Content\" />
-    <Folder Include="WorkerRole1Content\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="WebRole1Content\diagnostics.wadcfg">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="WebRole2Content\diagnostics.wadcfg">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="WorkerRole1Content\diagnostics.wadcfg">
-      <SubType>Content</SubType>
-    </Content>
+    <Folder Include="WCFReverseStringContent\" />
   </ItemGroup>
   <ItemGroup>
     <PublishProfile Include="Profiles\JWFirstCloudServiceProduction.azurePubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCFReverseString\WCFReverseString.csproj">
+      <Name>WCFReverseString</Name>
+      <Project>{25e2baa2-80af-412d-9954-55d6db1a041e}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>WCFReverseString</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WCFReverseStringContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
