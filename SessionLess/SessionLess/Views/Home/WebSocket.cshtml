@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "WebSocket";
+}
+
+<h2>WebSocket</h2>
+
+
+<input type="button" value="Connect" id="btnConnect" />
+<input type="button" value="Disconnect" id="btnDisconnect" /><br />
+<input type="text" id="textInput" />
+<input type="button" value="Send" id="btnSend" /><br />
+<span id="spanStatus">(display)</span>
+
+
+@section Scripts {
+    <script>
+        var ws;
+        $(document).ready(function () {
+            
+            var url = 'ws://localhost:62760/wschat.ashx'
+                + '?name=' + name;
+
+            $("#btnConnect").click(function () {
+                $("#spanStatus").text("connecting");
+
+                ws = new WebSocket("ws://localhost:62760/wschat.ashx");
+
+                ws.onopen = function () {
+                    $("#spanStatus").text("connected");
+                };
+                ws.onmessage = function (evt) {
+                    $("#spanStatus").text(evt.data);
+                };
+                ws.onerror = function (evt) {
+                    $("#spanStatus").text(evt.message);
+                };
+                ws.onclose = function () {
+                    $("#spanStatus").text("disconnected");
+                };
+            });
+            $("#btnSend").click(function () {
+                if (ws.readyState == WebSocket.OPEN) {
+                    ws.send($("#textInput").val());
+                }
+                else {
+                    $("#spanStatus").text("Connection is closed");
+                }
+            });
+            $("#btnDisconnect").click(function () {
+                ws.close();
+            });
+
+        });
+
+
+    </script>
+}
+
+

@@ -13,6 +13,8 @@ namespace SessionLess
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.IgnoreRoute("{handler}.ashx");
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

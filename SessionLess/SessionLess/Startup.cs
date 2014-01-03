@@ -9,6 +9,7 @@ namespace SessionLess
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            ConfigureSingalR(app);
         }
     }
 }

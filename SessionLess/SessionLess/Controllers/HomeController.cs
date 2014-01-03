@@ -26,5 +26,15 @@ namespace SessionLess.Controllers
 
             return View();
         }
+
+        public ActionResult WebSocket()
+        {
+            return View(); 
+        }
+
+        public ActionResult Chat()
+        {
+            return View();
+        }
     }
 }

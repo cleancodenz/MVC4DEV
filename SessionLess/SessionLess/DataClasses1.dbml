@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UiMS_DevBranch_UnitTest" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=YUGODB\SqlExpress;Initial Catalog=UiMS_DevBranch_UnitTest;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="UiMS_DevBranch_UnitTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Alert" Member="Alerts">
+    <Type Name="Alert">
+      <Column Name="AlertId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AlertCode" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="ParentId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AlertType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="TermId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AlertList" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(2048)" CanBeNull="true" />
+      <Column Name="InactiveFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Colour" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Importance" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
