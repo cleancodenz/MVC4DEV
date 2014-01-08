@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.WebPages;
 
 namespace SessionLess
 {
@@ -18,6 +19,9 @@ namespace SessionLess
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             // Set the database
             AppConfig.Configure();
+            // Set the mobile display mode
+            DisplayModeProvider.Instance.Modes.Insert(
+                0, new OperaMobiDisplayMode());
         }
     }
 }
