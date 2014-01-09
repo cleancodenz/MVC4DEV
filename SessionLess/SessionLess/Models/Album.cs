@@ -23,6 +23,7 @@ namespace SessionLess.Models
         [Required(ErrorMessage = "An Album Title is required")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [StringLength(160, MinimumLength = 2)]
+        [Display(Name="AlbumName", ResourceType=typeof(ResourcesProject.Views.Shared))]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Price is required")]

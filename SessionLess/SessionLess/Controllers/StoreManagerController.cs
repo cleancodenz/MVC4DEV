@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Threading;
+using System.Globalization;
+using SessionLess.ActionFilters;
 
 namespace SessionLess.Controllers
 {
@@ -25,9 +28,10 @@ namespace SessionLess.Controllers
 
             return View(albums);
         }
-
+        [LocalizationFilter]
         public ActionResult Edit(int id)
         {
+         
             Album album = this.db.Albums.Find(id);
 
             if (album == null)
