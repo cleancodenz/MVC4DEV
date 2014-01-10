@@ -47,5 +47,16 @@ namespace SessionLess.Controllers
         {
             return View();
         }
+
+        public ActionResult Redirect()
+        {
+             return Redirect("/StoreManager/Edit/2");
+
+          // return RedirectToAction("Edit","StoreManager",new {id =2}); //302
+           //return RedirectToActionPermanent("About"); // 301
+
+           //return RedirectToRoute("routename"); //this must be routename defined in maproute
+ 
+        }
     }
 }

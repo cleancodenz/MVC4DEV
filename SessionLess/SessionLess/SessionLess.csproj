@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.SingalR.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
@@ -600,9 +601,11 @@
     <Content Include="Views\StoreManager\Edit.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Home\Index.Mobile.cshtml" />
+    <Content Include="Views\Shared\ApplicationError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
     <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>
