@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using(@Html.BeginForm())
+{
+     <label>Day</label>
+     <input id="Day" name="Day" value="" type="text" />
+     <label>Month</label>
+     <input id="Month" name="Month" value="" type="text" />
+     <label>Year</label>
+     <input id="Year" name="Year" value="" type="text" />    
+    <input id="Submit" type="Submit" value="Submit" />
+}

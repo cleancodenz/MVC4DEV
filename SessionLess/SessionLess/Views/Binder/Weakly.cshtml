@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Weakly";
+}
+
+<h2>Weakly</h2>
+@using (@Html.BeginForm())
+{
+    <label>Title</label>
+    @Html.TextBox("my.title")
+     <label>Day</label>
+    <input id="Day" name="my.Day" value="" type="text" />
+    <label>Month</label>
+    <input id="Month" name="my.Month" value="" type="text" />
+    <label>Year</label>
+    <input id="Year" name="my.Year" value="" type="text" />
+    <input id="Submit" type="Submit" value="Submit" />
+}
+

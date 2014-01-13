@@ -1,4 +1,6 @@
 ﻿using SessionLess.Controllers;
+using SessionLess.CustomBinder;
+using SessionLess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,13 @@ namespace SessionLess
             // Set the mobile display mode
             DisplayModeProvider.Instance.Modes.Insert(
                 0, new OperaMobiDisplayMode());
+            // Set customized model binder
+           // ModelBinders.Binders.Add(typeof(HomePageModel),
+            //    new HomeCustomBinder());
+
+            ModelBinders.Binders.DefaultBinder =
+                new HomeCustomDataBinder();
+
         }
         protected void Application_Error(object sender, EventArgs e)
         {

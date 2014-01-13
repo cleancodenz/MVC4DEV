@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -33,7 +34,7 @@ namespace SessionLess.Controllers
 
         public ActionResult WebSocket()
         {
-            return View(); 
+            return View();
         }
 
         public ActionResult Chat()
@@ -50,13 +51,22 @@ namespace SessionLess.Controllers
 
         public ActionResult Redirect()
         {
-             return Redirect("/StoreManager/Edit/2");
+            return Redirect("/StoreManager/Edit/2");
 
-          // return RedirectToAction("Edit","StoreManager",new {id =2}); //302
-           //return RedirectToActionPermanent("About"); // 301
+            // return RedirectToAction("Edit","StoreManager",new {id =2}); //302
+            //return RedirectToActionPermanent("About"); // 301
 
-           //return RedirectToRoute("routename"); //this must be routename defined in maproute
- 
+            //return RedirectToRoute("routename"); //this must be routename defined in maproute
+
         }
+
+        public ContentResult ReadXML()
+        {
+            string fileName = Server.MapPath(@"~/Data/xmldata.xml");
+            TextReader tr = new StreamReader(fileName);
+            string contents = tr.ReadToEnd();
+            return Content(contents, "text/xml");
+        }
+
     }
 }

@@ -170,10 +170,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.SingalR.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BinderController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
+    <Compile Include="CustomBinder\HomeCustomBinder.cs" />
+    <Compile Include="CustomBinder\HomeCustomDataBinder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +188,8 @@
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\WeakPageModel.cs" />
+    <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MusicStoreEntities.cs" />
     <Compile Include="Models\SampleData.cs" />
@@ -202,6 +208,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Data\xmldata.xml" />
+    <Content Include="Data\xmldata.Debug.xml">
+      <DependentUpon>xmldata.xml</DependentUpon>
+    </Content>
+    <Content Include="Data\xmldata.Release.xml">
+      <DependentUpon>xmldata.xml</DependentUpon>
+    </Content>
+    <Content Include="Data\Booking.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af-ZA.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af.js" />
@@ -602,9 +616,14 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Home\Index.Mobile.cshtml" />
     <Content Include="Views\Shared\ApplicationError.cshtml" />
+    <Content Include="Views\File\Index.cshtml" />
+    <Content Include="Views\Binder\Index.cshtml" />
+    <Content Include="Views\Binder\Weakly.cshtml" />
+    <Content Include="Views\Binder\ValueProvider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CustomValueProvider\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\Validation\" />
   </ItemGroup>

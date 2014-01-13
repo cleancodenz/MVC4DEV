@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>File Index</h2>
+
+@using (@Html.BeginForm("Upload", "File", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    <label for="photo">Photo:</label>
+    <input type="file" name="pfiles[0]" id="files_0">
+    <input type="file" name="pfiles[1]" id="files_1">
+    <input type="file" name="pfiles[2]" id="files_2">
+
+    <input type="submit" value="Upload">
+     
+}

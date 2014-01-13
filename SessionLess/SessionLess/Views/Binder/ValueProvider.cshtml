@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ValueProvider";
+}
+
+<h2>ValueProvider</h2>
+@using (@Html.BeginForm())
+{
+    <label>Title</label>
+    @Html.TextBox("mytitle")
+    <label>Day</label>
+    <input id="Day" name="myDay" value="" type="text" />
+    <label>Month</label>
+    <input id="Month" name="myMonth" value="" type="text" />
+    <label>Year</label>
+    <input id="Year" name="myYear" value="" type="text" />
+    <input id="Submit" type="Submit" value="Submit" />
+}
