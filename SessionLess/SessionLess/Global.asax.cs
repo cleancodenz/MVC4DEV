@@ -1,5 +1,6 @@
 ﻿using SessionLess.Controllers;
 using SessionLess.CustomBinder;
+using SessionLess.CustomValueProvider;
 using SessionLess.Models;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,13 @@ namespace SessionLess
 
             ModelBinders.Binders.DefaultBinder =
                 new HomeCustomDataBinder();
+
+            // custom value provider for binder/ValueProvider
+            var factory = new MyValueProvider();
+            ValueProviderFactories.Factories.Add(factory);
+
+          // RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
+
 
         }
         protected void Application_Error(object sender, EventArgs e)

@@ -46,6 +46,9 @@
       <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.0.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RouteDebugger">
+      <HintPath>..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -169,6 +172,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.SingalR.cs" />
+    <Compile Include="Areas\Order\Controllers\Home2Controller.cs" />
+    <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BinderController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -178,6 +183,7 @@
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="CustomBinder\HomeCustomBinder.cs" />
     <Compile Include="CustomBinder\HomeCustomDataBinder.cs" />
+    <Compile Include="CustomValueProvider\MyValueProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,6 +222,10 @@
       <DependentUpon>xmldata.xml</DependentUpon>
     </Content>
     <Content Include="Data\Booking.pdf" />
+    <Content Include="Areas\Order\Views\web.config" />
+    <Content Include="Areas\Order\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Order\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Order\Views\Home2\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af-ZA.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af.js" />
@@ -623,7 +633,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="CustomValueProvider\" />
+    <Folder Include="Areas\Order\Models\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\Validation\" />
   </ItemGroup>

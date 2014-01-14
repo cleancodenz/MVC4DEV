@@ -49,7 +49,7 @@ namespace SessionLess.Controllers
         [HttpPost]
         public ActionResult Edit(Album album)
         {
-
+          
             if (ModelState.IsValid)
             {
                 this.db.Entry(album).State = EntityState.Modified;
