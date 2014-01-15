@@ -1,4 +1,5 @@
 ﻿using SessionLess.ActionFilters;
+using SessionLess.CustomControllerFactory;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,6 +13,18 @@ namespace SessionLess.Controllers
 {
     public class HomeController : Controller
     {
+       
+
+    
+        
+        public HomeController()
+        {
+          
+        }
+  
+
+   
+        
         [LocalizationFilter]
         public ActionResult Index()
         {

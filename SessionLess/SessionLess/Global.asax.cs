@@ -1,6 +1,8 @@
 ﻿using SessionLess.Controllers;
 using SessionLess.CustomBinder;
+using SessionLess.CustomControllerFactory;
 using SessionLess.CustomValueProvider;
+using SessionLess.CustomViewEngine;
 using SessionLess.Models;
 using System;
 using System.Collections.Generic;
@@ -37,12 +39,17 @@ namespace SessionLess
             var factory = new MyValueProvider();
             ValueProviderFactories.Factories.Add(factory);
 
-          // RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
+            // custom controller factory
+         //   ControllerBuilder.Current.SetControllerFactory(
+         //   typeof(MyCustomControllerFactory));
 
+            //add new custom view engine
+            ViewEngines.Engines.Add(new MyCustomViewEngine());
 
         }
         protected void Application_Error(object sender, EventArgs e)
         {
+            /*
             // this handles 404 http exceptions which are not handled by HandleError in controller
             var httpContext = ((MvcApplication)sender).Context;
             var currentController = " ";
@@ -91,7 +98,8 @@ namespace SessionLess
 
             controller.ViewData.Model = new HandleErrorInfo(ex, currentController, currentAction);
             ((IController)controller).Execute(new RequestContext(new HttpContextWrapper(httpContext), routeData));
-        }
+       */ 
+       }
 
     }
 }

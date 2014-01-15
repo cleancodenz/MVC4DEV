@@ -34,5 +34,54 @@ namespace SessionLess.CustomBinder
                 return base.BindModel(controllerContext, bindingContext);
             }
         }
+
+        /**
+         * 
+         * public class IssueForm
+           {
+             Order Order {get; set;}
+             Item Item {get; set;}
+            Range Range {get; set;}
+           }
+         * 
+         * 
+         *   if(propertyDescriptor.Name == "Order") {
+            ...
+            return;
+        }
+
+        if(propertyDescriptor.Name == "Item") {
+            ...
+            return;
+        }
+
+        base.BindProperty(controllerContext, bindingContext, propertyDescriptor);
+         * 
+        protected override void BindProperty(ControllerContext contContext,
+            ModelBindingContext bindContext,
+            System.ComponentModel.PropertyDescriptor propDesc)
+        {
+           List<string> DateTimeTypes = new List<string>{ "BirthDate",
+            "StartDate", "EndDate" };
+            if (DateTimeTypes.Contains(propDesc.Name))
+            {
+                if (!string.IsNullOrEmpty(
+                        contContext.HttpContext.Request.Form[propDesc.Name + "Year"]))
+                {
+                        DateTime dt = new DateTime(int.Parse(
+                            contContext.HttpContext.Request.Form[propDesc.Name
+                            + "Year"]),
+                           int.Parse(contContext.HttpContext.Request.Form[propDesc.Name +
+                            "Month"]),
+                            int.Parse(contContext.HttpContext.Request.Form[propDesc.Name +
+                           "Day"]));
+                    //can also call SetProperty of DefaultModelBinder
+                        propDesc.SetValue(bindContext.Model, dt);
+                    return;
+                }
+            }
+            base.BindProperty(contContext, bindContext, propDesc);
+        }
+         * */
     }
 }

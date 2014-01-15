@@ -176,14 +176,23 @@
     <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BinderController.cs" />
+    <Compile Include="Controllers\CViewController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NestedLayoutController.cs" />
+    <Compile Include="Controllers\ParameterController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
+    <Compile Include="CustomActionResult\XMLActionResult.cs" />
     <Compile Include="CustomBinder\HomeCustomBinder.cs" />
     <Compile Include="CustomBinder\HomeCustomDataBinder.cs" />
+    <Compile Include="CustomControllerFactory\Logger.cs" />
+    <Compile Include="CustomControllerFactory\MyCustomControllerFactory.cs" />
+    <Compile Include="CustomFilters\MyAuthorizationFilterAttribute.cs" />
     <Compile Include="CustomValueProvider\MyValueProvider.cs" />
+    <Compile Include="CustomViewEngine\MyCustomViewEngine.cs" />
+    <Compile Include="CustomViewEngine\MyView.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -630,11 +639,16 @@
     <Content Include="Views\Binder\Index.cshtml" />
     <Content Include="Views\Binder\Weakly.cshtml" />
     <Content Include="Views\Binder\ValueProvider.cshtml" />
+    <None Include="Views\CView\Index.myview" />
+    <Content Include="Views\NestedLayout\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\_AutomationLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Order\Models\" />
     <Folder Include="Views\Error\" />
+    <Folder Include="Views\Parameter\" />
     <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>
