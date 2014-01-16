@@ -190,6 +190,8 @@
     <Compile Include="CustomControllerFactory\Logger.cs" />
     <Compile Include="CustomControllerFactory\MyCustomControllerFactory.cs" />
     <Compile Include="CustomFilters\MyAuthorizationFilterAttribute.cs" />
+    <Compile Include="CustomRoutHandler\MyDeepRouteHandler.cs" />
+    <Compile Include="CustomRoutHandler\MyCustomRouteHandler.cs" />
     <Compile Include="CustomValueProvider\MyValueProvider.cs" />
     <Compile Include="CustomViewEngine\MyCustomViewEngine.cs" />
     <Compile Include="CustomViewEngine\MyView.cs" />

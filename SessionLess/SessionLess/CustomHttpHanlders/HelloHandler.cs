@@ -7,6 +7,7 @@ namespace SessionLess
 {
     public class HelloHandler : IHttpHandler
     {
+
         public bool IsReusable
         {
             // To enable pooling, return true here.
