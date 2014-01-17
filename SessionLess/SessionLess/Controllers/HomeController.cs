@@ -1,7 +1,9 @@
 ﻿using SessionLess.ActionFilters;
 using SessionLess.CustomControllerFactory;
+using SessionLess.CustomFilters;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -13,21 +15,18 @@ namespace SessionLess.Controllers
 {
     public class HomeController : Controller
     {
-       
-
-    
         
         public HomeController()
         {
-          
+           // System.Diagnostics.EventLog.w 
+            Trace.WriteLine("Home Controller Created","MyApp");
         }
-  
-
-   
         
         [LocalizationFilter]
+       // [CompressFilter]
         public ActionResult Index()
         {
+            Trace.WriteLine("Home Controller Index Action Executing", "MyApp");
             return View();
         }
 

@@ -189,6 +189,7 @@
     <Compile Include="CustomBinder\HomeCustomDataBinder.cs" />
     <Compile Include="CustomControllerFactory\Logger.cs" />
     <Compile Include="CustomControllerFactory\MyCustomControllerFactory.cs" />
+    <Compile Include="CustomFilters\CompressFilter.cs" />
     <Compile Include="CustomFilters\MyAuthorizationFilterAttribute.cs" />
     <Compile Include="CustomRoutHandler\MyDeepRouteHandler.cs" />
     <Compile Include="CustomRoutHandler\MyCustomRouteHandler.cs" />
@@ -645,11 +646,11 @@
     <Content Include="Views\NestedLayout\Index.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Shared\_AutomationLayout.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Order\Models\" />
-    <Folder Include="Views\Error\" />
     <Folder Include="Views\Parameter\" />
     <Folder Include="Views\Validation\" />
   </ItemGroup>

@@ -49,7 +49,8 @@ namespace SessionLess
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-            /*
+            /**
+           
             // this handles 404 http exceptions which are not handled by HandleError in controller
             var httpContext = ((MvcApplication)sender).Context;
             var currentController = " ";
@@ -98,7 +99,7 @@ namespace SessionLess
 
             controller.ViewData.Model = new HandleErrorInfo(ex, currentController, currentAction);
             ((IController)controller).Execute(new RequestContext(new HttpContextWrapper(httpContext), routeData));
-       */ 
+        **/
        }
 
     }
