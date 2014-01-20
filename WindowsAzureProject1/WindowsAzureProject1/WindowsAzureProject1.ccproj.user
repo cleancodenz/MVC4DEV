@@ -6,5 +6,7 @@
     <PackageSolutionConfiguration>Release</PackageSolutionConfiguration>
     <PackageEnableRemoteDesktop>True</PackageEnableRemoteDesktop>
     <RemoteDesktopMoreOptions>False</RemoteDesktopMoreOptions>
+    <DeploymentProfilingMode>Sampling</DeploymentProfilingMode>
+    <DeploymentEnableTierInteractionProfiling>False</DeploymentEnableTierInteractionProfiling>
   </PropertyGroup>
 </Project>

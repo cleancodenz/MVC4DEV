@@ -224,6 +224,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="s404.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Data\xmldata.xml" />
@@ -647,6 +648,9 @@
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Shared\_AutomationLayout.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\Status404.cshtml" />
+    <Content Include="Views\Error\Status400.cshtml" />
+    <Content Include="Views\Error\WebConfigureDefault.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

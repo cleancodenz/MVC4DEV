@@ -19,6 +19,9 @@ namespace SessionLess
     {
         protected void Application_Start()
         {
+            AppDomain.CurrentDomain.FirstChanceException +=
+                CurrentDomain_FirstChanceException;
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -49,7 +52,7 @@ namespace SessionLess
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-            /**
+          /**
            
             // this handles 404 http exceptions which are not handled by HandleError in controller
             var httpContext = ((MvcApplication)sender).Context;
@@ -75,19 +78,19 @@ namespace SessionLess
             var routeData = new RouteData();
             var action = "Index";
 
-            if (ex is HttpException)
-            {
-                var httpEx = ex as HttpException;
+           // if (ex is HttpException)
+           // {
+           //     var httpEx = ex as HttpException;
 
-                switch (httpEx.GetHttpCode())
-                {
-                    case 404:
-                        action = "Index";
-                        break;
+           //     switch (httpEx.GetHttpCode())
+            //    {
+            //        case 404:
+            //            action = "Index";
+            //            break;
 
                     // others if any
-                }
-            }
+            //    }
+            //}
 
             httpContext.ClearError();
             httpContext.Response.Clear();
@@ -102,5 +105,14 @@ namespace SessionLess
         **/
        }
 
+
+        protected void CurrentDomain_FirstChanceException(object sender,
+System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        {
+            if (e.Exception is NotImplementedException)
+            {
+                // do something special when the functionality is not implemented
+            }
+        }
     }
 }

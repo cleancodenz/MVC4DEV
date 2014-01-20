@@ -40,8 +40,37 @@ namespace SessionLess.Controllers
 
         public ActionResult Http()
         {
+            // this will be handled by application_error
             throw new HttpException(404, "Category not found");
             // the view does not exist
+            return View();
+        }
+
+        public ActionResult Http2()
+        {
+            // this will be handled by application_error
+            throw new HttpException(400, "Bad request.");
+            // the view does not exist
+            return View();
+        }
+
+        //When Appcation_error handles errors, web.config custom errors page will not be applied
+ 
+        public ActionResult Status404()
+        {
+       
+            return View();
+        }
+
+        public ActionResult Status400()
+        {
+       
+            return View();
+        }
+
+        public ActionResult WebConfigureDefault()
+        {
+          
             return View();
         }
 	}

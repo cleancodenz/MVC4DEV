@@ -12,11 +12,13 @@
     <AzureHostedServiceLabel>JWCloudService</AzureHostedServiceLabel>
     <AzureHostedServiceName>jwcloudservice</AzureHostedServiceName>
     <AzureEnableIntelliTrace>False</AzureEnableIntelliTrace>
-    <AzureEnableProfiling>False</AzureEnableProfiling>
+    <AzureEnableProfiling>True</AzureEnableProfiling>
     <AzureServiceConfiguration>Cloud</AzureServiceConfiguration>
     <AzureSolutionConfiguration>Release</AzureSolutionConfiguration>
     <AzureStorageAccountLabel>JWFirstCloudService</AzureStorageAccountLabel>
     <AzureStorageAccountName>jwfirstcloudservice</AzureStorageAccountName>
     <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
+    <EnableRemoteDebugger>True</EnableRemoteDebugger>
+    <RemoteDebuggerConnectorCertificateThumbprint>136396182AF98994926EAD8B9668F129B5A6341B</RemoteDebuggerConnectorCertificateThumbprint>
   </PropertyGroup>
 </Project>

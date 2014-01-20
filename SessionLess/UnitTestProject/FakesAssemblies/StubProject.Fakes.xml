@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StubProject.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:StubProject.Fakes.ShimMathematics">
+            <summary>Shim type of StubProject.Mathematics</summary>
+        </member>
+        <member name="M:StubProject.Fakes.ShimMathematics.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:StubProject.Fakes.ShimMathematics.#ctor(StubProject.Mathematics)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:StubProject.Fakes.ShimMathematics.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:StubProject.Fakes.ShimMathematics.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:StubProject.Fakes.ShimMathematics.AddNumbers">
+            <summary>Sets the shim of Mathematics.AddNumbers()</summary>
+        </member>
+        <member name="P:StubProject.Fakes.ShimMathematics.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:StubProject.Fakes.ShimMathematics.ConstructorICalculator">
+            <summary>Sets the shim of Mathematics.Mathematics(ICalculator calc)</summary>
+        </member>
+        <member name="P:StubProject.Fakes.ShimMathematics.GetTheCurrentYear">
+            <summary>Sets the shim of Mathematics.GetTheCurrentYear()</summary>
+        </member>
+        <member name="T:StubProject.Fakes.ShimMathematics.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:StubProject.Fakes.ShimMathematics.AllInstances.AddNumbers">
+            <summary>Sets the shim of Mathematics.AddNumbers()</summary>
+        </member>
+        <member name="P:StubProject.Fakes.ShimMathematics.AllInstances.GetTheCurrentYear">
+            <summary>Sets the shim of Mathematics.GetTheCurrentYear()</summary>
+        </member>
+        <member name="T:StubProject.Fakes.StubICalculator">
+            <summary>Stub type of StubProject.ICalculator</summary>
+        </member>
+        <member name="M:StubProject.Fakes.StubICalculator.#ctor">
+            <summary>Initializes a new instance of type StubICalculator</summary>
+        </member>
+        <member name="F:StubProject.Fakes.StubICalculator.AddDoubleDouble">
+            <summary>Sets the stub of ICalculator.Add(Double firstNumber, Double lastNumber)</summary>
+        </member>
+        <member name="M:StubProject.Fakes.StubICalculator.sp::StubProject#ICalculator#Add(System.Double,System.Double)">
+            <summary>Sets the stub of ICalculator.Add(Double firstNumber, Double lastNumber)</summary>
+        </member>
+        <member name="T:StubProject.Fakes.StubMathematics">
+            <summary>Stub type of StubProject.Mathematics</summary>
+        </member>
+        <member name="M:StubProject.Fakes.StubMathematics.#ctor(StubProject.ICalculator)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:StubProject.Fakes.StubMathematics.InitializeStub">
+            <summary>Initializes a new instance of type StubMathematics</summary>
+        </member>
+        <member name="P:StubProject.Fakes.StubMathematics.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:StubProject.Fakes.StubMathematics.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:StubProject.Fakes.StubMathematics.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>
