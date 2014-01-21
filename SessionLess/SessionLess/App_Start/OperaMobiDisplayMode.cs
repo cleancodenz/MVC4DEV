@@ -6,6 +6,7 @@ using System.Web.WebPages;
 
 namespace SessionLess
 {
+    // display a different version of views
     public class OperaMobiDisplayMode : DefaultDisplayMode
     {
         public OperaMobiDisplayMode() :base("Mobile")

@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SessionLess.Models;
+using System.Threading;
+using System.Security.Principal;
 
 namespace SessionLess.Controllers
 {
@@ -118,6 +120,12 @@ namespace SessionLess.Controllers
         // GET: /Account/Manage
         public ActionResult Manage(ManageMessageId? message)
         {
+          
+
+            //   if (!user.Identity.IsAuthenticated || this._usersSplit.Length > 0 && !Enumerable.Contains<string>((IEnumerable<string>)this._usersSplit, user.Identity.Name, (IEqualityComparer<string>)StringComparer.OrdinalIgnoreCase))
+            //      return false;
+            // end of addition by johnson
+
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
@@ -333,6 +341,13 @@ namespace SessionLess.Controllers
 
         private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
+            // added by johnson
+            var user1 = Request.RequestContext.HttpContext.User;
+            var user2 = Thread.CurrentPrincipal;
+            //the identity of the security context of the Win32 thread
+            WindowsIdentity winId = WindowsIdentity.GetCurrent();
+            WindowsPrincipal winPrincipal = new WindowsPrincipal(winId);
+
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);

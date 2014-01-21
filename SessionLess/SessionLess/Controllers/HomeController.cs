@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +21,7 @@ namespace SessionLess.Controllers
         {
            // System.Diagnostics.EventLog.w 
             Trace.WriteLine("Home Controller Created","MyApp");
+    
         }
         
         [LocalizationFilter]
