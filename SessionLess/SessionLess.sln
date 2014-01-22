@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubProject", "StubProject\StubProject.csproj", "{51BA3BA0-380C-459E-8C24-461091B0F030}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAuthentication", "FormAuthentication\FormAuthentication.csproj", "{6F2B7DD0-EAA0-425C-9925-FBA0C951CDFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{51BA3BA0-380C-459E-8C24-461091B0F030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51BA3BA0-380C-459E-8C24-461091B0F030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51BA3BA0-380C-459E-8C24-461091B0F030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F2B7DD0-EAA0-425C-9925-FBA0C951CDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2B7DD0-EAA0-425C-9925-FBA0C951CDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2B7DD0-EAA0-425C-9925-FBA0C951CDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2B7DD0-EAA0-425C-9925-FBA0C951CDFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

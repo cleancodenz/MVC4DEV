@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,6 +16,12 @@ namespace SessionLess.CustomFilters
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            // added by johnson
+            var user1 = filterContext.HttpContext.User;
+            var user2 = Thread.CurrentPrincipal;
+            //the identity of the security context of the Win32 thread
+            WindowsIdentity winId = WindowsIdentity.GetCurrent();
+            WindowsPrincipal winPrincipal = new WindowsPrincipal(winId);
             
             base.OnAuthorization(filterContext);
             // this is the key for authentication and authorization
