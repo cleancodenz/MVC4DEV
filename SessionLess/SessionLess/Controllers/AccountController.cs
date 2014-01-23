@@ -143,6 +143,12 @@ namespace SessionLess.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Manage(ManageUserViewModel model)
         {
+            /**
+            // johnson added
+            // using UserManager to play with roles
+            UserManager.IsInRoleAsync("johnson", "admin");
+            **/
+
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
             ViewBag.ReturnUrl = Url.Action("Manage");

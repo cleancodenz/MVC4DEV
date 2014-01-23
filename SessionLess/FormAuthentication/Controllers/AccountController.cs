@@ -30,12 +30,24 @@ namespace FormAuthentication.Controllers
         }
 
         //
+        // GET: /Account/Manage
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminManage()
+        {
+           // using Roles for formsauthentication
+           // WSSecutiry for simple membership provider
+           var test= Roles.IsUserInRole("Admin");
+            return View();
+        }
+
+        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            /**
             if (ModelState.IsValid)
             {
                 if (model.UserName == "j")
@@ -45,6 +57,17 @@ namespace FormAuthentication.Controllers
                 }
 
 
+            }**/
+
+            if (ModelState.IsValid && Membership.ValidateUser(
+                model.UserName,
+                model.Password
+                ))
+            {
+              
+                FormsAuthentication.SetAuthCookie(model.UserName, true);
+                return RedirectToLocal(returnUrl);
+ 
             }
             /**
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
