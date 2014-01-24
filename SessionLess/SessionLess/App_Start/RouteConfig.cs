@@ -1,10 +1,9 @@
-﻿using SessionLess.CustomRoutHandler;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web.Services.Protocols;
+using SessionLess.API;
+using SessionLess.CustomRoutHandler;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.ServiceModel.Activation;
 
 namespace SessionLess
 {
@@ -37,10 +36,16 @@ namespace SessionLess
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
               //  ,namespaces: new string[] { "SessionLess.Controllers" }
-               , constraints: new { id = @"\d*" }
+               , constraints: new { id = @"\d*", controller = @"^(?!api)\w+$" }
             ).RouteHandler = new MyCustomRouteHandler();
 
-          
+            //Not using WebServiceHostFactory here which is creating WebHttpBinding
+            //We want to use wshttpbinding here 
+            RouteTable.Routes.Add(
+                new ServiceRoute(
+                    @"api/Math1Service",
+                    new WebServiceHostFactory(),
+                    typeof(IISMathService)));
 
         }
     }

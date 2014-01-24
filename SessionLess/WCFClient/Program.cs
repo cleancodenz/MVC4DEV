@@ -137,8 +137,20 @@ namespace WCFClient
                 Console.WriteLine("Result {0} ", dblResult.ToString("F2"));
 
                 Console.WriteLine("This can also be accomplished by navigating to");
-                Console.WriteLine("http://localhost/mathservice/add?dblVal1=1.2f&dblVal1=2.3f");
+                Console.WriteLine("http://localhost/mathservice/addnumber?dblVal1=1.2f&dblVal1=2.3f");
 
+                dblResult = mathService.DivideNumber(dblVal1, dblVal2);
+
+
+                //  Display Results.
+                Console.WriteLine("Operation {0} ", strAdr);
+                Console.WriteLine("Operand 1 {0} ", dblVal1.ToString("F2"));
+                Console.WriteLine("Operand 2 {0} ", dblVal2.ToString("F2"));
+                Console.WriteLine("Result {0} ", dblResult.ToString("F2"));
+
+                Console.WriteLine("This can also be accomplished by navigating to");
+                Console.WriteLine("Post http://localhost/mathservice/addnumber?dblVal1=1.2f&dblVal1=2.3f");
+                
                 channelFactory.Close();
             }
             catch (Exception eX)

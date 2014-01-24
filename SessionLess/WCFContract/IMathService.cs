@@ -22,8 +22,9 @@ namespace WCFContract
         [WebGet]
         double MultiplyNumber(double dblX, double dblY);
         [OperationContract]
-        //This is post
-        [WebGet]
+        //This is post with multiple parameters
+        [WebInvoke(Method = "POST"
+            ,BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         double DivideNumber(double dblX, double dblY);
     }
 }

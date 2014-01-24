@@ -15,7 +15,8 @@ namespace WCFServices
         static void Main(string[] args)
         {
           //  StartBasicHTTPService();
-            StartWSHTTPService();
+          //  StartWSHTTPService();
+            StartWebHTTPService(); 
             Console.ReadLine();
         }
 
