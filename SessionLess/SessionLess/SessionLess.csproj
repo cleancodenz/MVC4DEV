@@ -53,6 +53,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
@@ -218,6 +220,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="CustomHttpHanlders\WebSocketHandler.cs" />
+    <Compile Include="WCFCustomUserNameValidator\CustomUserNameValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -611,7 +614,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -673,6 +678,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomMembershipProvider\CustomMembershipProvider.csproj">
+      <Project>{7d9f5909-9fb5-4842-b81b-e03b6f76c5fd}</Project>
+      <Name>CustomMembershipProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ResourcesProject\ResourcesProject.csproj">
       <Project>{47b0bcae-00ab-45da-8d18-71560fb4830e}</Project>
       <Name>ResourcesProject</Name>

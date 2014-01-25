@@ -40,11 +40,11 @@ namespace SessionLess
             ).RouteHandler = new MyCustomRouteHandler();
 
             //Not using WebServiceHostFactory here which is creating WebHttpBinding
-            //We want to use wshttpbinding here 
+            //We want to use wshttpbinding here so it has to be ServiceHostFactory
             RouteTable.Routes.Add(
                 new ServiceRoute(
                     @"api/Math1Service",
-                    new WebServiceHostFactory(),
+                    new ServiceHostFactory(),
                     typeof(IISMathService)));
 
         }

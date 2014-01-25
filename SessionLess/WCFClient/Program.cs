@@ -17,7 +17,9 @@ namespace WCFClient
             Console.ReadLine();
            // ConsumeBasicHTTPService();
            // ConsumeWSTTPService();
-            ConsumeWebHTTPService();
+           // ConsumeWebHTTPService();
+           // ConsumeIISWSTTPService();
+            ConsumeSecuredIISWSTTPService();
             Console.ReadLine();
         }
 
@@ -151,6 +153,88 @@ namespace WCFClient
                 Console.WriteLine("This can also be accomplished by navigating to");
                 Console.WriteLine("Post http://localhost/mathservice/addnumber?dblVal1=1.2f&dblVal1=2.3f");
                 
+                channelFactory.Close();
+            }
+            catch (Exception eX)
+            {
+                // Something unexpected happended .. 
+                Console.WriteLine("Error while performing operation [" +
+                  eX.Message + "] \n\n Inner Exception [" + eX.InnerException + "]");
+            }
+        }
+
+        private static void ConsumeIISWSTTPService()
+        {
+            ChannelFactory<IMathService>
+                channelFactory = null;
+            EndpointAddress ep = null;
+
+            string strAdr = "http://localhost:62760/api" + "/Math1Service";
+
+            try
+            {
+                WSHttpBinding httpb = new WSHttpBinding();
+                channelFactory = new ChannelFactory<IMathService>(httpb);
+
+                // Create End Point
+                ep = new EndpointAddress(strAdr);
+
+                // Create Channel
+                IMathService mathService = channelFactory.CreateChannel(ep);
+
+                double dblResult = 0;
+                double dblVal1 = 1.2f;
+                double dblVal2 = 2.3f;
+
+                dblResult = mathService.AddNumber(dblVal1, dblVal2);
+
+
+                //  Display Results.
+                Console.WriteLine("Operation {0} ", strAdr);
+                Console.WriteLine("Operand 1 {0} ", dblVal1.ToString("F2"));
+                Console.WriteLine("Operand 2 {0} ", dblVal2.ToString("F2"));
+                Console.WriteLine("Result {0} ", dblResult.ToString("F2"));
+                channelFactory.Close();
+            }
+            catch (Exception eX)
+            {
+                // Something unexpected happended .. 
+                Console.WriteLine("Error while performing operation [" +
+                  eX.Message + "] \n\n Inner Exception [" + eX.InnerException + "]");
+            }
+        }
+
+        private static void ConsumeSecuredIISWSTTPService()
+        {
+            ChannelFactory<IMathService>
+                channelFactory = null;
+            EndpointAddress ep = null;
+
+            string strAdr = "http://localhost:50625/api" + "/Math2Service";
+
+            try
+            {
+                WSHttpBinding httpb = new WSHttpBinding();
+                channelFactory = new ChannelFactory<IMathService>(httpb);
+
+                // Create End Point
+                ep = new EndpointAddress(strAdr);
+
+                // Create Channel
+                IMathService mathService = channelFactory.CreateChannel(ep);
+
+                double dblResult = 0;
+                double dblVal1 = 1.2f;
+                double dblVal2 = 2.3f;
+
+                dblResult = mathService.AddNumber(dblVal1, dblVal2);
+
+
+                //  Display Results.
+                Console.WriteLine("Operation {0} ", strAdr);
+                Console.WriteLine("Operand 1 {0} ", dblVal1.ToString("F2"));
+                Console.WriteLine("Operand 2 {0} ", dblVal2.ToString("F2"));
+                Console.WriteLine("Result {0} ", dblResult.ToString("F2"));
                 channelFactory.Close();
             }
             catch (Exception eX)
