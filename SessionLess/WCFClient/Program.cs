@@ -15,17 +15,17 @@ namespace WCFClient
         {
             Console.WriteLine("Press any key to consume service...");
             Console.ReadLine();
-           // ConsumeBasicHTTPService();
-           // ConsumeWSTTPService();
-           // ConsumeWebHTTPService();
-           // ConsumeIISWSTTPService();
+            // ConsumeBasicHTTPService();
+            // ConsumeWSTTPService();
+            // ConsumeWebHTTPService();
+            // ConsumeIISWSTTPService();
             ConsumeSecuredIISWSTTPService();
             Console.ReadLine();
         }
 
         private static void ConsumeBasicHTTPService()
         {
-            ChannelFactory<IMathService> 
+            ChannelFactory<IMathService>
                 channelFactory = null;
             EndpointAddress ep = null;
 
@@ -33,21 +33,21 @@ namespace WCFClient
 
             try
             {
-              BasicHttpBinding httpb = new BasicHttpBinding();
-              channelFactory = new ChannelFactory<IMathService>(httpb);
-                
+                BasicHttpBinding httpb = new BasicHttpBinding();
+                channelFactory = new ChannelFactory<IMathService>(httpb);
+
                 // Create End Point
-              ep = new EndpointAddress(strAdr);
+                ep = new EndpointAddress(strAdr);
 
-               // Create Channel
-              IMathService mathService = channelFactory.CreateChannel(ep);
+                // Create Channel
+                IMathService mathService = channelFactory.CreateChannel(ep);
 
-              double dblResult = 0;
-              double dblVal1 = 1.2f;
-              double dblVal2 = 2.3f;
+                double dblResult = 0;
+                double dblVal1 = 1.2f;
+                double dblVal2 = 2.3f;
 
                 dblResult = mathService.AddNumber(dblVal1, dblVal2);
-             
+
 
                 //  Display Results.
                 Console.WriteLine("Operation {0} ", strAdr);
@@ -116,12 +116,12 @@ namespace WCFClient
             try
             {
                 WebHttpBinding httpb = new WebHttpBinding();
-                channelFactory = new ChannelFactory<IMathService>(httpb,strAdr);
-                
+                channelFactory = new ChannelFactory<IMathService>(httpb, strAdr);
+
                 //this must be added for webhttpbinding client
                 channelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
                 // Create End Point
-              
+
                 // Create Channel
                 IMathService mathService = channelFactory.CreateChannel();
 
@@ -131,7 +131,7 @@ namespace WCFClient
 
                 dblResult = mathService.AddNumber(dblVal1, dblVal2);
 
-                
+
                 //  Display Results.
                 Console.WriteLine("Operation {0} ", strAdr);
                 Console.WriteLine("Operand 1 {0} ", dblVal1.ToString("F2"));
@@ -152,7 +152,7 @@ namespace WCFClient
 
                 Console.WriteLine("This can also be accomplished by navigating to");
                 Console.WriteLine("Post http://localhost/mathservice/addnumber?dblVal1=1.2f&dblVal1=2.3f");
-                
+
                 channelFactory.Close();
             }
             catch (Exception eX)
@@ -210,13 +210,33 @@ namespace WCFClient
                 channelFactory = null;
             EndpointAddress ep = null;
 
-            string strAdr = "http://localhost:50625/api" + "/Math2Service";
-
+           // string strAdr = "http://localhost:50625/api/Math2Service";
+            string strAdr = "https://localhost:44301/api/Math2Service";
             try
             {
                 WSHttpBinding httpb = new WSHttpBinding();
-                channelFactory = new ChannelFactory<IMathService>(httpb);
+                httpb.Security.Mode = SecurityMode.Message;
+                httpb.Security.Message.ClientCredentialType =
+                   MessageCredentialType.UserName;
 
+                channelFactory = new ChannelFactory<IMathService>(httpb);
+                //  channelFactory.Credentials.UserName = "johnson";
+
+                // step one - find and remove default endpoint behavior 
+                var defaultCredentials = channelFactory.
+                    Endpoint.Behaviors.Find<ClientCredentials>();
+                channelFactory.Endpoint.
+                    Behaviors.Remove(defaultCredentials);
+
+
+                // step two - instantiate your credentials
+                ClientCredentials loginCredentials = new ClientCredentials();
+                loginCredentials.UserName.UserName = "johnson";
+                loginCredentials.UserName.Password = "1234";
+
+
+                // step three - set that as new endpoint behavior on factory
+                channelFactory.Endpoint.Behaviors.Add(loginCredentials); //add required ones
                 // Create End Point
                 ep = new EndpointAddress(strAdr);
 
