@@ -15,6 +15,7 @@ namespace ACSApp.Controllers
 
         public ActionResult About()
         {
+            var user = HttpContext.User; 
             ViewBag.Message = "Your application description page.";
 
             return View();

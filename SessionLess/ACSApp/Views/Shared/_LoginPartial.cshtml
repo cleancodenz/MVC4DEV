@@ -1,10 +1,15 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <text>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-text">
-                Hello, @User.Identity.Name!
-            </li>
-        </ul>
-    </text>
+    using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+    {
+        @Html.AntiForgeryToken()
+        <text>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-text">
+                    Hello, @User.Identity.Name!
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        </text>
+    }
 }
