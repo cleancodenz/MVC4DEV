@@ -1,0 +1,100 @@
+﻿<!--
+<trust:RequestSecurityTokenResponseCollection xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">
+  <trust:RequestSecurityTokenResponse Context="rm=0&amp;id=passive&amp;ru=%2F">
+    <trust:Lifetime>
+      <wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-01-28T23:40:02.816Z</wsu:Created>
+      <wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-01-29T00:40:02.816Z</wsu:Expires>
+    </trust:Lifetime>
+    <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsa:Address>http://localhost:19851/</wsa:Address>
+      </wsa:EndpointReference>
+    </wsp:AppliesTo>
+    <trust:RequestedSecurityToken>
+      <binarySecurityToken d4p1:Id="05114101-83a1-44a7-b5a6-88db0425a13e" valueType="http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" xmlns:d4p1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">SWQ9MDUxMTQxMDEtODNhMS00NGE3LWI1YTYtODhkYjA0MjVhMTNlJklzc3Vlcj1QYXNzaXZlU1RTJkF1ZGllbmNlPWh0dHAlM2ElMmYlMmZsb2NhbGhvc3QlM2ExOTg1MSUyZiZFeHBpcmVzT249MTM5MDk1NjAwMiZWYWxpZEZyb209MTM5MDk1MjQwMiZodHRwJTNhJTJmJTJmc2NoZW1hcy54bWxzb2FwLm9yZyUyZndzJTJmMjAwNSUyZjA1JTJmaWRlbnRpdHklMmZjbGFpbXMlMmZuYW1lPWZmZiZITUFDU0hBMjU2PWwxbmVWOG1zQ3NwZGk1YzBDYmJUZGExaW8xMDd0U1k4YTdNV0ZjdDlGWGclMjUzZA==</binarySecurityToken>
+    </trust:RequestedSecurityToken>
+    <trust:RequestedAttachedReference>
+      <o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+        <o:Reference URI="#05114101-83a1-44a7-b5a6-88db0425a13e" />
+      </o:SecurityTokenReference>
+    </trust:RequestedAttachedReference>
+    <trust:RequestedUnattachedReference>
+      <o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+        <o:Reference URI="#05114101-83a1-44a7-b5a6-88db0425a13e" />
+      </o:SecurityTokenReference>
+    </trust:RequestedUnattachedReference>
+    <trust:TokenType>http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0</trust:TokenType>
+    <trust:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</trust:RequestType>
+    <trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
+  </trust:RequestSecurityTokenResponse>
+</trust:RequestSecurityTokenResponseCollection>
+-->
+<t:RequestSecurityTokenResponse Context="rm=0&amp;id=passive&amp;ru=%2f" xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+  <t:Lifetime>
+    <wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-01-29T01:21:56.607Z</wsu:Created>
+    <wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-01-29T01:31:56.607Z</wsu:Expires>
+  </t:Lifetime>
+  <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+      <Address>http://localhost:1584/</Address>
+    </EndpointReference>
+  </wsp:AppliesTo>
+  <t:RequestedSecurityToken>
+    <Assertion ID="_67616a24-954d-4a61-befe-98ecd9b62d11" IssueInstant="2014-01-29T01:21:56.607Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+      <Issuer>https://cleancodeacs.accesscontrol.windows.net/</Issuer>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+          <ds:Reference URI="#_67616a24-954d-4a61-befe-98ecd9b62d11">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+            <ds:DigestValue>GgW/MDqx82KbAxiqsvWM68Liv3+3RPrCCkPrLkIFbHM=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>QgCChaEAmrTGeYkQsoEO0kpX5213lLxm3KMupWQMcvLqWrTk/35VIAcMDoEmmnnnIxXO7AqCKcqWY1J06/MwMs/NE3EqNWYtbiyZ/3p9+Nlk9acnidzuQL0rqJJ3zOkPjscpfRcXOlKEzDcecd+rhURUAR/HQpNeFgMD+yFhYsYEWSLq3FrTviIz2nJteIs6jUVIxA3hlkSEwzzqOI4f1BjclWlY9bjOpspoxlucKLJypgjN4ZBmpPuO6Cd95s50Ksoj38DllV6FzgtgSJUTa3QlAFJUT09eJDdv3J8aj/JLUcNJzDnyqV+yWeYVVCMmlvkhSb4mplP8DqltqHkYOA==</ds:SignatureValue>
+        <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+          <X509Data>
+            <X509Certificate>MIIDGjCCAgKgAwIBAgIQIkUGxqYaQoBEZ6/uTddP8zANBgkqhkiG9w0BAQUFADAxMS8wLQYDVQQDEyZjbGVhbmNvZGVhY3MuYWNjZXNzY29udHJvbC53aW5kb3dzLm5ldDAeFw0xNDAxMjYyMzM0MTRaFw0xNTAxMjcwNTM0MTRaMDExLzAtBgNVBAMTJmNsZWFuY29kZWFjcy5hY2Nlc3Njb250cm9sLndpbmRvd3MubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0JQWGST+AOATdI1YCcR1Rqkra57ohJDyCE4XtnP3uxv1yKd/SR0woeN8QB3y7onDkx1AJZub4+kY4H95x6IuY3Dmktb52Nj9mi4KGrVNbtYEnJohu/hTxn0mu0USyz4NJJPeY8fLmSZbX834KMRDU9yeDnZKctouu8v9bOYg/9UdvwKk0OEUX9xphmqmgAzsVsoKtW+orpirznxzMVYGCDRQNg6G8Cw1BY7ke7xtFxVjvpIqfxJAw13xrEJH3GYdbHz2d/5BYSJmpYNWrdzU4ZZNgNsYMVviKdkcnIRNcn+J+FOHwHY2t6qjhJADlzKQ/91gzgAoRm7EjzuV36JEpwIDAQABoy4wLDALBgNVHQ8EBAMCBPAwHQYDVR0OBBYEFEjNzsXUb60Pw1bFs40wvHTj85I4MA0GCSqGSIb3DQEBBQUAA4IBAQBUHWtoYdbuVEXoAH3Gfnu1zRpWcm6Fkn3qMo87myv/bZNCMzXJSRhgT4tPbBQDeZyN3s68cS6uwEA7WCGPo1kKjAy4I8KiJOnffbMIFC69iGiwp9JqGwr17vHpgN8JjwjN7mY9OYHMI/AkvM8TeeIYg1/JiNtgQ0Co+bwQIdf+1w7gGEwZ7vYrVQsO/P8scgFzv6UzsZ1+uyW9OmiJUpsu62eHDgBkH8VUjIrRn+4keqfvQgU/vnXgDWjkib3Yd9q7Gvsp+spBEdM9iR37fxsFo/f259nQ34QkDlm1U/CUHHYMZFLFL887tt4T80MSiUHo75FZxWaCGUdRsgd2p8nV</X509Certificate>
+          </X509Data>
+        </KeyInfo>
+      </ds:Signature>
+      <Subject>
+        <NameID>https://www.google.com/accounts/o8/id?id=AItOawmVEIf6NN5llkDkWkHcRpThKdvqAj5qY9o</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-01-29T01:21:56.607Z" NotOnOrAfter="2014-01-29T01:31:56.607Z">
+        <AudienceRestriction>
+          <Audience>http://localhost:1584/</Audience>
+        </AudienceRestriction>
+      </Conditions>
+      <AttributeStatement>
+        <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress">
+          <AttributeValue>johnsonwangnz@gmail.com</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
+          <AttributeValue>Johnson Wang</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider">
+          <AttributeValue>Google</AttributeValue>
+        </Attribute>
+      </AttributeStatement>
+    </Assertion>
+  </t:RequestedSecurityToken>
+  <t:RequestedAttachedReference>
+    <SecurityTokenReference d3p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:d3p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_67616a24-954d-4a61-befe-98ecd9b62d11</KeyIdentifier>
+    </SecurityTokenReference>
+  </t:RequestedAttachedReference>
+  <t:RequestedUnattachedReference>
+    <SecurityTokenReference d3p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:d3p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_67616a24-954d-4a61-befe-98ecd9b62d11</KeyIdentifier>
+    </SecurityTokenReference>
+  </t:RequestedUnattachedReference>
+  <t:TokenType>urn:oasis:names:tc:SAML:2.0:assertion</t:TokenType>
+  <t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+  <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
+</t:RequestSecurityTokenResponse>
