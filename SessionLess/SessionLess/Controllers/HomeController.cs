@@ -28,6 +28,7 @@ namespace SessionLess.Controllers
        // [CompressFilter]
         public ActionResult Index()
         {
+            var s = Request;
             Trace.WriteLine("Home Controller Index Action Executing", "MyApp");
             return View();
         }
