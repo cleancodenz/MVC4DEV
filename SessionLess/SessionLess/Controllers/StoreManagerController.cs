@@ -47,6 +47,7 @@ namespace SessionLess.Controllers
 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Album album)
         {
           
