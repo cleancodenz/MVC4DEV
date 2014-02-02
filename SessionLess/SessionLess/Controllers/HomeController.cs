@@ -24,7 +24,7 @@ namespace SessionLess.Controllers
     
         }
         
-        [LocalizationFilter]
+    
        // [CompressFilter]
         public ActionResult Index()
         {
