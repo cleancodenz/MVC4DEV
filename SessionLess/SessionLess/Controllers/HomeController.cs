@@ -27,7 +27,7 @@ namespace SessionLess.Controllers
         
     
        // [CompressFilter]
-       
+      
         public ActionResult Index()
         {
             var isannonymous = User.IsInRole("Anonymous");
