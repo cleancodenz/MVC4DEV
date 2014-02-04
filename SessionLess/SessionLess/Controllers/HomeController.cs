@@ -12,9 +12,10 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace SessionLess.Controllers
 {
-    [Authorize]
+   
     public class HomeController : Controller
     {
         
@@ -27,10 +28,10 @@ namespace SessionLess.Controllers
         
     
        // [CompressFilter]
-      
+    
         public ActionResult Index()
         {
-            var isannonymous = User.IsInRole("Anonymous");
+           
  
             var s = Request;
             Trace.WriteLine("Home Controller Index Action Executing", "MyApp");
