@@ -32,8 +32,8 @@ namespace SessionLess
             DisplayModeProvider.Instance.Modes.Insert(
                 0, new OperaMobiDisplayMode());
             // Set customized model binder
-           // ModelBinders.Binders.Add(typeof(HomePageModel),
-            //    new HomeCustomBinder());
+          //  ModelBinders.Binders.Add(typeof(HomePageModel),
+           //     new HomeCustomBinder());
 
             ModelBinders.Binders.DefaultBinder =
                 new HomeCustomDataBinder();
