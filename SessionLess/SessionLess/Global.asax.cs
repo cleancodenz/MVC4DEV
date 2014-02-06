@@ -1,6 +1,7 @@
 ﻿using SessionLess.Controllers;
 using SessionLess.CustomBinder;
 using SessionLess.CustomControllerFactory;
+using SessionLess.CustomModelValidator;
 using SessionLess.CustomValueProvider;
 using SessionLess.CustomViewEngine;
 using SessionLess.Models;
@@ -45,6 +46,10 @@ namespace SessionLess
             // custom controller factory
          //   ControllerBuilder.Current.SetControllerFactory(
          //   typeof(MyCustomControllerFactory));
+
+            //Custom model data validator provider
+            ModelValidatorProviders.Providers.Add(new AllRequiredValidatorProvider());
+
 
             //add new custom view engine
             ViewEngines.Engines.Add(new MyCustomViewEngine());

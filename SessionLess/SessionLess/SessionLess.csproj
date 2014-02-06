@@ -197,6 +197,8 @@
     <Compile Include="CustomControllerFactory\MyCustomControllerFactory.cs" />
     <Compile Include="CustomFilters\CompressFilter.cs" />
     <Compile Include="CustomFilters\MyAuthorizationFilterAttribute.cs" />
+    <Compile Include="CustomModelValidator\AllRequiredAttribute.cs" />
+    <Compile Include="CustomModelValidator\AllRequiredValidatorProvider.cs" />
     <Compile Include="CustomRoutHandler\MyDeepRouteHandler.cs" />
     <Compile Include="CustomRoutHandler\MyCustomRouteHandler.cs" />
     <Compile Include="CustomValueProvider\MyValueProvider.cs" />
