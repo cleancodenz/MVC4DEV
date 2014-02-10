@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,7 +16,7 @@ namespace ACSApp.Controllers
 
         public ActionResult About()
         {
-            var user = HttpContext.User; 
+            ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
             ViewBag.Message = "Your application description page.";
 
             return View();
