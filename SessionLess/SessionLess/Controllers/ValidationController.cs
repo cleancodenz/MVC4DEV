@@ -1,4 +1,5 @@
-﻿using SessionLess.Models;
+﻿using System.Web.SessionState;
+using SessionLess.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,6 +11,7 @@ using System.Web.UI;
 namespace SessionLess.Controllers
 {
     [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+  
     public class ValidationController : Controller
     {
         private MusicStoreEntities db = new MusicStoreEntities();
